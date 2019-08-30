@@ -1,0 +1,47 @@
+.dashboard {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 130px);
+    background-color: #ffffff;
+
+    .searchTitle {
+      display: flex;
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+
+      .el-input {
+        width: auto;
+      }
+
+      .el-input, .el-select {
+        margin-top: 10px;
+        margin-left: 10px;
+        border: 1px solid #DDDDDD;
+      }
+
+      .search-btn {
+        margin-top: 10px;
+        margin-left: 10px;
+        height: 40px;
+        padding: 0 50px;
+      }
+    }
+
+    .line {
+      height: 10px;
+      background-color: #DDDDDD;
+    }
+    .goods-form{
+      padding: 10px 10px;
+      .goods-handle{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
+}

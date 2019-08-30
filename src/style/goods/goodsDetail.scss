@@ -1,0 +1,42 @@
+@import "~@/commonScss/variables.scss";
+.goods-detail {
+  padding: 10px 10px;
+
+  .handleBtns {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $border;
+  }
+
+  .goods-info {
+    padding-top: 20px ;
+    display: flex;
+    .goods-base{
+      margin-left: 40px;
+      .tags{
+        display: flex;
+        .tag-left, .tag-right{
+          text-align: right;
+          padding-right: 20px;
+          border-right: 1px solid $border;
+        }
+        .tag-info{
+          min-width: 100px;
+        }
+      }
+    }
+  }
+  h2{
+    color: #5a5e66;
+  }
+
+  .goods-card{
+    margin-top: 20px;
+    .card-content{
+      padding: 0 20px;
+    }
+    .card-content-categories{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
