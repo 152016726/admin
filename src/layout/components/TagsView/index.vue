@@ -1,7 +1,7 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
     <scroll-pane ref="scrollPane" class="tags-view-wrapper">
-      <route-link
+      <router-link
         v-for="tag in visitedViews"
         ref="tag"
         :key="tag.path"
@@ -14,7 +14,7 @@
       >
         {{tag.title}}
         <span v-if="!tag.meta.affix" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
-      </route-link>
+      </router-link>
     </scroll-pane>
     <ul v-show="visible" :style="{left: left+ 'px', top: top+ 'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">Refresh</li>
@@ -73,7 +73,7 @@
                 let tags = []
                 routes.forEach(route => {
                     if (route.meta && route.meta.affix) {
-                        const tagPath = path.resovle(basePath, route.path)
+                        const tagPath = path.resolve(basePath, route.path)
                         tags.push({
                             fullPath: tagPath,
                             path: tagPath,
@@ -129,9 +129,9 @@
                 })
             },
             closeSelectedTag(view) {
-                this.$store.dispatch('tagsView/delView', view).then(({visitedView}) => {
+                this.$store.dispatch('tagsView/delView', view).then(({visitedViews}) => {
                     if (this.isActive(view)) {
-                        this.toLastView()
+                        this.toLastView(visitedViews, view)
                     }
                 })
             },
@@ -149,8 +149,9 @@
                     this.toLastView(visitedViews, view)
                 })
             },
-            toLastView(visitedView, view) {
-                const latestView = visitedView.slice(-1)[0]
+            toLastView(visitedViews, view) {
+                console.log(visitedViews, 'visitedView');
+                const latestView = visitedViews.slice(-1)[0]
                 if (latestView) {
                     this.$router.push(latestView)
                 } else {

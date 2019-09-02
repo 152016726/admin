@@ -22,7 +22,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/goods/dashboard'),
-      meta: {title: '商品清单' , icon: 'dashboard'},
+      meta: {title: '商品清单' , icon: 'dashboard', affix: true},
       children:[{
         path: 'goodsDetail',
         name: 'goodsDetail',
