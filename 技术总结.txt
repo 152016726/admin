@@ -1,0 +1,18 @@
+1.（）=> import('xxx.vue') 懒加载
+2.store的modules使用
+3.侧边栏的灵活配置
+4.权限配置路由
+5./deep/的css写法
+6.scss暴露至外部变量的方法
+7.entries() 方法返回一个数组的迭代对象，该对象包含数组的键值对 (key/value)。
+
+迭代对象中数组的索引值作为 key， 数组元素作为 value。
+8.Object.getOwnProperty用于返回对象的自有属性，包括可枚举和不可枚举的
+Object.keys()返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键名
+Object.values()方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键值。
+Object.entries方法返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（ enumerable ）属性的键值对数组
+Array.entries方法返回一个数组的迭代对象，该对象包含数组的键值对 (key/value)。
+
+迭代对象中数组的索引值作为 key， 数组元素作为 value。需要用for ... of来遍历新的对象
+9.在actions里的方法中第一个参数中我们可以获取，commit,state,dispatch
+10.$nextTick,vue中的DOM更新是异步的，此函数提供在DOM更新后获取到更新的数据进行DOM操作
