@@ -137,3 +137,10 @@ const actions = {
     commit('update_visited_views', view)
   }
 }
+
+export default {
+  namespaced: true,
+  state,
+  actions,
+  mutations
+}

@@ -16,3 +16,16 @@ Array.entries方法返回一个数组的迭代对象，该对象包含数组的�
 迭代对象中数组的索引值作为 key， 数组元素作为 value。需要用for ... of来遍历新的对象
 9.在actions里的方法中第一个参数中我们可以获取，commit,state,dispatch
 10.$nextTick,vue中的DOM更新是异步的，此函数提供在DOM更新后获取到更新的数据进行DOM操作
+11.@click.native在router-link上绑定click事件是不会触发的，只有绑定到.native上才会触发
+12.@click.left/right/middle 代表鼠标的左，右，中键触发
+13.@contextmenu触发右键弹出菜单
+14.this.$router.replace({path: '/redirect'+ fullPath})重新导向路由刷新
+15.rectObject = object.getBoundingClientRect();
+rectObject.top：元素上边到视窗上边的距离;
+
+rectObject.right：元素右边到视窗左边的距离;
+
+rectObject.bottom：元素下边到视窗上边的距离;
+
+rectObject.left：元素左边到视窗左边的距离;
+16.this.$el它指的是当前组件的的元素,在mounted之后才有
