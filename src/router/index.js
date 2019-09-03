@@ -21,8 +21,24 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/goods/dashboard'),
+      component: () => import('@/views/goods/goodsList'),
       meta: {title: '商品清单' , icon: 'dashboard', affix: true},
+    }]
+  }
+]
+
+export const asyncRoutes = [
+  {
+    path: '/baseInfo',
+    name: 'baseInfo',
+    component: Layout,
+    redirect: '/baseInfo/baseList',
+    meta: {title: '基础数据' , icon: 'dashboard'},
+    children: [{
+      path: 'baseList',
+      name: 'baseList',
+      component: () => import('@/views/goods/dashboard'),
+      meta: {title: '基础数据' , icon: 'dashboard', affix: true},
       children:[{
         path: 'goodsDetail',
         name: 'goodsDetail',
@@ -31,10 +47,7 @@ export const constantRoutes = [
         hidden: true
       }]
     }]
-  }
-]
-
-export const asyncRoutes = [
+  },
   {
     path: '/useForm',
     component: Layout,

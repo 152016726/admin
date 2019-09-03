@@ -1,10 +1,7 @@
 .dashboard {
   &-container {
-    display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 130px);
+    width: 100%;
     background-color: #ffffff;
-
     .searchTitle {
       display: flex;
       flex-wrap: wrap;
@@ -34,6 +31,7 @@
     }
     .goods-form{
       padding: 10px 10px;
+      box-sizing: border-box;
       .goods-handle{
         margin-bottom: 20px;
       }

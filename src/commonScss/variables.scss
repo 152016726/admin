@@ -12,6 +12,9 @@ $subMenuHover:#001528;
 $sideBarWidth: 210px;
 $border: #DDDDDD;
 
+// 商品清单-过滤栏左侧标题背景
+$goodsTitleBg: #dedede;
+
 // the :export directive is the magic sauce for webpack
 // https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
 :export {

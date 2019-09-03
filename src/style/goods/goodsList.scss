@@ -1,0 +1,59 @@
+@import "~@/commonScss/variables.scss";
+
+.goods-list {
+  width: 100%;
+  padding: 10px 10px;
+
+  .title-search {
+    display: flex;
+    flex-wrap: wrap;
+
+    .el-input {
+      width: 400px;
+      border: 1px solid $border;
+    }
+
+    .btn-search {
+      margin-left: 20px;
+      padding: 12px 50px;
+    }
+  }
+
+  .search-result {
+    font-size: 14px;
+    color: $menuText;
+
+    .result {
+      margin-left: 10px;
+      color: $menuActiveText;
+    }
+  }
+
+  .goods-filter-box {
+    border: 1px solid $border;
+
+    .goods-item {
+      display: flex;
+      flex-direction: row;
+      color: gray;
+
+      .goods-item-title {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $goodsTitleBg;
+      }
+
+      .goods-item-category {
+        border-left: 1px solid $border;
+        border-bottom: 1px solid $border;
+        flex: 9;
+        &.lastItem{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+}

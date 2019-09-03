@@ -9,5 +9,10 @@ module.exports = {
    * @type {boolean} true | false
    * @description Whether show the logo in sidebar
    */
-  sidebarLogo: true
+  sidebarLogo: true,
+  /**
+   * @type {boolean} true | false
+   * @description 是否需要展示标签页
+   */
+  tagsView: true
 };

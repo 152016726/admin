@@ -29,3 +29,5 @@ rectObject.bottom：元素下边到视窗上边的距离;
 
 rectObject.left：元素左边到视窗左边的距离;
 16.this.$el它指的是当前组件的的元素,在mounted之后才有
+17.样式中从根目录引入其他样式写法结构为“@import ''~@/文件夹”
+18.让flex在一行指定几个items，节点设置成横向flex布局，每个子节点设置百分比宽度

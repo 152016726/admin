@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-container">
+  <div class="dashboard-container page-container">
     <div v-if="isShowTable">
       <div class="searchTitle">
         <el-input placeholder="请输入商品编码" v-model="code"></el-input>
@@ -278,7 +278,7 @@
         },
         computed:{
             isShowTable(){
-                return this.$route.fullPath === '/dashboard'
+                return this.$route.fullPath === '/baseInfo/baseList'
             }
         },
         methods: {

@@ -150,7 +150,6 @@
                 })
             },
             toLastView(visitedViews, view) {
-                console.log(visitedViews, 'visitedView');
                 const latestView = visitedViews.slice(-1)[0]
                 if (latestView) {
                     this.$router.push(latestView)

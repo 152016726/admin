@@ -1,7 +1,9 @@
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
-      <router-view :key="key" />
+      <keep-alive :include="cachedViews">
+        <router-view :key="key" />
+      </keep-alive>
     </transition>
   </section>
 </template>
@@ -10,6 +12,9 @@
     export default {
         name: "AppMain",
         computed: {
+            cachedViews(){
+                return this.$store.state.tagsView.cachedViews
+            },
             key() {
                 return this.$route.path
             }
@@ -17,16 +22,26 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .app-main {
     /*50 = navbar  */
     min-height: calc(100vh - 130px);
     width: 100%;
     position: relative;
     overflow: hidden;
+    display: flex;
+    background-color: #ffffff;
   }
   .fixed-header+.app-main {
     padding-top: 130px;
+  }
+  .hasTagsView{
+    .app-main{
+      min-height: calc(100vh - 164px);
+    }
+    .fixed-header+.app-main {
+      padding-top: 164px;
+    }
   }
 </style>
 
