@@ -16,7 +16,7 @@
       </div>
       <div class="goods-item">
         <div class="goods-item-title"><span>剂型</span></div>
-        <filterCategory class="goods-item-category lastItem"/>
+        <filterCategory class="goods-item-category lastItem" :category="dosage"/>
       </div>
     </div>
   </div>
@@ -46,10 +46,10 @@
                     {id: '14', value: '修正'},
                     {id: '15', value: '京果'},
                     {id: '16', value: '仲景（ZJ）'},
-                    {id: '16', value: '仲景（ZJ）'},
-                    {id: '16', value: '仲景（ZJ）'},
-                    {id: '16', value: '仲景（ZJ）'},
-                    {id: '16', value: '仲景（ZJ）'}
+                    {id: '17', value: '仲景（ZJ）'},
+                    {id: '18', value: '仲景（ZJ）'},
+                    {id: '19', value: '仲景（ZJ）'},
+                    {id: '20', value: '仲景（ZJ）'}
                 ],
                 dosage:[
                     {id: '1', value: '片剂'},
