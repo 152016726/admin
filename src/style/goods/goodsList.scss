@@ -2,58 +2,188 @@
 
 .goods-list {
   width: 100%;
-  padding: 10px 10px;
 
-  .title-search {
-    display: flex;
-    flex-wrap: wrap;
+  .goods-header {
+    padding: 10px 10px;
 
-    .el-input {
-      width: 400px;
-      border: 1px solid $border;
-    }
-
-    .btn-search {
-      margin-left: 20px;
-      padding: 12px 50px;
-    }
-  }
-
-  .search-result {
-    font-size: 14px;
-    color: $menuText;
-
-    .result {
-      margin-left: 10px;
-      color: $menuActiveText;
-    }
-  }
-
-  .goods-filter-box {
-    border: 1px solid $border;
-
-    .goods-item {
+    .title-search {
       display: flex;
-      flex-direction: row;
-      color: gray;
+      flex-wrap: wrap;
 
-      .goods-item-title {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $goodsTitleBg;
+      .el-input {
+        width: 400px;
+        border: 1px solid $border;
       }
 
-      .goods-item-category {
-        border-left: 1px solid $border;
-        border-bottom: 1px solid $border;
-        flex: 9;
-        &.lastItem{
-          border-bottom: none;
+      .btn-search {
+        margin-left: 20px;
+        padding: 12px 50px;
+      }
+    }
+
+    .search-result {
+      font-size: 14px;
+      color: $menuText;
+
+      .result {
+        margin-left: 10px;
+        color: $menuActiveText;
+      }
+    }
+
+    .goods-filter-box {
+      border: 1px solid $border;
+
+      .goods-item {
+        display: flex;
+        flex-direction: row;
+        color: gray;
+
+        .goods-item-title {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $goodsTitleBg;
+        }
+
+        .goods-item-category {
+          border-left: 1px solid $border;
+          border-bottom: 1px solid $border;
+          flex: 9;
+
+          &.lastItem {
+            border-bottom: none;
+          }
         }
       }
     }
+  }
+
+  .goods-content {
+    padding: 10px 10px;
+
+    .goods-order {
+      display: flex;
+      flex-direction: row;
+
+      .goods-filter-column {
+        display: flex;
+        flex-direction: row;
+
+        .el-dropdown {
+          /deep/ {
+            .el-button {
+              border-radius: 0;
+              background: transparent;
+              border: 1px solid $border;
+              border-right: none;
+              color: #606266;
+            }
+
+            &:last-child {
+              .el-button {
+                border-right: 1px solid $border;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+              }
+            }
+
+            &:first-child {
+              .el-button {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+              }
+            }
+
+
+          }
+
+          &:hover {
+            /deep/ {
+              .el-button {
+                color: $menuActiveText;
+              }
+
+              .el-icon-arrow-down:before {
+                content: "\E6E1";
+              }
+            }
+          }
+        }
+      }
+
+      .tips-ops {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        margin-left: 20px;
+
+        .circle {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          margin-right: 10px;
+          background-color: $menuActiveText;
+        }
+      }
+
+    }
+
+    .goods-handle{
+      display: flex;
+      padding: 10px 0;
+      justify-content: space-between;
+      .handle{
+        /deep/{
+          .el-button{
+            width: 92px;
+            background-color: transparent;
+            border-radius: 2px;
+            border: 1px solid $border;
+            color: $menuActiveText;
+            box-sizing: border-box;
+            &:hover{
+              border-color: $menuActiveText;
+              background-color: $menuActiveText;
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .goods-table{
+      display: flex;
+      flex-wrap: wrap;
+      &.el-checkbox-group{
+        /deep/{
+          .el-checkbox-button{
+            .el-checkbox-button__inner{
+                border: none;
+              border-radius: 0;
+              padding: 0 0;
+            }
+            &.is-checked .el-checkbox-button__inner{
+              background-color: transparent;
+              border:none;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+      .units{
+        width: 12%;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        &:nth-child(8n){
+          margin-right: 0;
+        }
+      }
+    }
+
   }
 
 }

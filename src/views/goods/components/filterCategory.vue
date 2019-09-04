@@ -1,10 +1,10 @@
 <template>
   <div class="filterCategory">
-    <el-radio-group class="categories" v-if="!isShowMore" v-model="singleSelect">
-      <el-radio-button v-for="item in categoryList" :key="item.id" class="category" :label="item.id">{{item.value}}
+    <el-radio-group class="singleSelection categories" v-if="!isMultiSelection" v-model="singleSelect">
+      <el-radio-button v-for="item in (isShowMore ? category : categoryList)" :key="item.id" class="category" :label="item.id">{{item.value}}
       </el-radio-button>
     </el-radio-group>
-    <div class="multipleSelection categories" v-if="isShowMore">
+    <div class="multipleSelection categories" v-if="isMultiSelection">
       <el-scrollbar>
         <el-checkbox-group v-model="multiSelect">
           <el-checkbox v-for="item in category" :key="item.id" :label="item.id" class="category">{{item.value}}
@@ -17,11 +17,11 @@
       </div>
     </div>
     <div class="handleCategories" v-if="category.length >1">
-      <el-button size="mini" class="handle_btn" v-if="category.length > 1 && !isShowMore" @click.prevent="selectMore">
+      <el-button size="mini" class="handle_btn" v-if="category.length > 1 && !isMultiSelection" @click.prevent="selectMore">
         多选
       </el-button>
-      <el-button size="mini" class="handle_btn" v-if="category.length > 16 && !isShowMore" @click.prevent="chooseMore">
-        更多
+      <el-button size="mini" class="handle_btn" v-if="category.length > 16 && !isMultiSelection" @click.prevent="chooseMore">
+        {{isShowMore ? '收起' : '更多'}}
       </el-button>
     </div>
   </div>
@@ -54,28 +54,28 @@
         methods: {
             selectMore() {
                 this.isMultiSelection = true
-            },
-            chooseMore() {
-                this.isShowMore = true
                 this.multiSelect = Array.from(
-                  new Set(
-                    this.multiSelect.concat(this.singleSelect ? [this.singleSelect] : [])
-                  )
+                    new Set(
+                        this.multiSelect.concat(this.singleSelect ? [this.singleSelect] : [])
+                    )
                 )
             },
+            chooseMore() {
+                this.isShowMore = !this.isShowMore
+            },
             setMultiSelection(){
-              this.isShowMore = false;
+              this.isMultiSelection = false;
               // 多选确定操作
             },
             cancelMultiSelection(){
-              this.isShowMore = false;
+              this.isMultiSelection = false;
               this.multiSelect = this.singleSelect ? [this.singleSelect] : []
             }
         },
         created() {
             if (this.category.length > 16) {
                 this.categoryList = this.category.slice(0, 16)
-                this.isShowMore = false
+                this.isMultiSelection = false
             } else {
                 this.categoryList = this.category
             }
@@ -96,6 +96,12 @@
         width: 12.5%;
         padding: 5px 10px;
       }
+    }
+
+    .singleSelection{
+      max-height: 96px;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .multipleSelection{
@@ -131,7 +137,8 @@
     .el-scrollbar{
       width: 100%;
       flex-wrap: wrap;
-      height: 60px;
+      min-height: 29px;
+      max-height: 96px;
       .el-checkbox {
         margin-right: 0;
       }
