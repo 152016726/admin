@@ -324,7 +324,6 @@
                     })
                 }
                 this.filterObj = filterObj;
-                console.log(filterObj, 'filterObj');
             },
             /**
              * 过滤方法

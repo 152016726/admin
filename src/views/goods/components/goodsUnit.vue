@@ -5,14 +5,44 @@
            class="image" alt="">
       <div class="mask_shadow" v-if="group.includes(item)"></div>
       <div class="introduction" v-show="visible" :style="{left: left+ 'px', top: top+ 'px'}">
-        <p>商品编码：01010101010101</p>
-        <p>批准文号：国药准字H123214141</p>
-        <p>物料类型：药品-西药-非处方药</p>
-        <p>生产厂家：汕头市时珍同方保健食品有限公司</p>
-        <p>特殊类别：</p>
-        <p>保质期/月：24</p>
-        <p>品牌：时珍</p>
-        <p>业务机构：九章医药有限公司</p>
+        <div class="goods-info">
+          <span class="title">商品编码：</span>
+          <a class="info" href="#" onclick="return false;" title="01010101010101">01010101010101</a>
+        </div>
+        <div class="goods-info">
+          <span class="title">批准文号：</span>
+          <a class="info" href="#" onclick="return false;" title="国药准字H123214141">国药准字H123214141</a>
+        </div>
+        <div class="goods-info">
+          <span class="title">物料类型：</span>
+          <a class="info" href="#" onclick="return false;" title="药品-西药-非处方药">药品-西药-非处方药</a>
+        </div>
+        <div class="goods-info">
+          <span class="title">生产厂家：</span>
+          <a class="info" href="#" onclick="return false;" title="汕头市时珍同方保健食品有限公司">汕头市时珍同方保健食品有限公司</a>
+        </div>
+        <div class="goods-info">
+          <span class="title">特殊类别：</span>
+          <a class="info" href="#" onclick="return false;">
+            <i class="drag">毒</i>
+            <i class="anesthesia">麻</i>
+            <i class="spirit">精</i>
+            <i class="radioactive">放</i>
+            <i class="common">普</i>
+          </a>
+        </div>
+        <div class="goods-info">
+          <span class="title">保质期/月：</span>
+          <a class="info" href="#" onclick="return false;">24</a>
+        </div>
+        <div class="goods-info">
+          <span class="title"><span>品</span> <span>牌：</span></span>
+          <a class="info" href="#" onclick="return false;">时珍</a>
+        </div>
+        <div class="goods-info">
+          <span class="title">业务机构：</span>
+          <a class="info" href="#" onclick="return false;" title="九章医药有限公司">九章医药有限公司</a>
+        </div>
       </div>
     </div>
     <div class="content">
@@ -35,31 +65,23 @@
         },
         props: {
             group: {default: () => []},
-            item: {default: ''}
+            item: {default: ''},
+            containerWidth: {default: ''},
+            containerOffsetLeft: {default: ''}
         },
         methods: {
             openIntro(e) {
-
-                const menuMinWidth = 105
-                const offsetLeft = this.$el.getBoundingClientRect().left // container margin left
-                // const offsetWidth = this.$el.offsetWidth
-                // const maxLeft = offsetWidth + menuMinWidth
-                const left = e.clientX - offsetLeft + 15
-
-                console.log(left)
-
-                // if (left > maxLeft) {
-                //     this.left = maxLeft
-                // } else {
-                //     this.left = left
-                // }
-                // this.left = left
-                // this.top = e.clientY
+                const flag = this.$el.offsetWidth + e.clientX - this.containerOffsetLeft > this.containerWidth
+                if (flag) {
+                    this.left = -150
+                } else {
+                    this.left = 50
+                }
+                this.top = 50
                 this.visible = true
             },
             closeIntro() {
                 this.visible = false
-                console.log("移出")
             }
         }
     }
@@ -107,11 +129,67 @@
         background: #fff;
         z-index: 3000;
         position: absolute;
-        width: 100%;
+        width: 200px;
         padding: 10px 10px;
         box-sizing: border-box;
         font-size: 12px;
         border: 1px solid $border;
+
+        .goods-info {
+          display: flex;
+          line-height: 20px;
+
+          .title {
+            width: 60px;
+            display: flex;
+            text-align: right;
+            justify-content: space-between;
+          }
+
+          .info {
+            margin: 0;
+            overflow: hidden;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            i {
+              display: inline-block;
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              font-style: normal;
+              font-size: 12px;
+              text-align: center;
+              vertical-align: middle;
+            }
+
+            .drag {
+              background-color: red;
+              color: #ffffff;
+            }
+
+            .anesthesia {
+              background-color: yellow;
+              color: #000000;
+            }
+
+            .spirit {
+              background-color: palegreen;
+              color: #ffffff;
+            }
+
+            .radioactive {
+              background-color: #000000;
+              color: #ffffff;
+            }
+
+            .common {
+              background-color: $subMenuActiveText;
+              color: $menuText;
+            }
+          }
+        }
       }
     }
 

@@ -58,6 +58,25 @@
         }
       }
     }
+
+    .goods-filter-more {
+      padding-top:20px;
+      padding-bottom: 10px;
+      text-align: center;
+      /deep/ {
+        .el-button {
+          width: 200px;
+          background-color: transparent;
+          border-radius: 2px;
+          border: 1px solid $menuActiveText;
+          color: $menuActiveText;
+          box-sizing: border-box;
+        }
+        .el-icon-arrow-down{
+          font-weight: bold;
+        }
+      }
+    }
   }
 
   .goods-content {
@@ -132,20 +151,22 @@
 
     }
 
-    .goods-handle{
+    .goods-handle {
       display: flex;
       padding: 10px 0;
       justify-content: space-between;
-      .handle{
-        /deep/{
-          .el-button{
+
+      .handle {
+        /deep/ {
+          .el-button {
             width: 92px;
             background-color: transparent;
             border-radius: 2px;
             border: 1px solid $border;
             color: $menuActiveText;
             box-sizing: border-box;
-            &:hover{
+
+            &:hover {
               border-color: $menuActiveText;
               background-color: $menuActiveText;
               color: #ffffff;
@@ -155,31 +176,64 @@
       }
     }
 
-    .goods-table{
+    .goods-table {
       display: flex;
       flex-wrap: wrap;
-      &.el-checkbox-group{
-        /deep/{
-          .el-checkbox-button{
-            .el-checkbox-button__inner{
-                border: none;
+
+      &.el-checkbox-group {
+        /deep/ {
+          .el-checkbox-button {
+            .el-checkbox-button__inner {
+              border: none;
               border-radius: 0;
               padding: 0 0;
             }
-            &.is-checked .el-checkbox-button__inner{
+
+            &.is-checked .el-checkbox-button__inner {
               background-color: transparent;
-              border:none;
+              border: none;
               box-shadow: none;
             }
           }
         }
       }
-      .units{
+
+      .el-checkbox-button {
+        /deep/ {
+          .el-card {
+            overflow: inherit;
+          }
+        }
+      }
+
+      .units {
         width: 12%;
-        margin-right: 5px;
+        margin-right: 0.55%;
         margin-bottom: 10px;
-        &:nth-child(8n){
+
+        &:nth-child(8n) {
           margin-right: 0;
+        }
+      }
+    }
+
+    .convenientHandle {
+      .handle {
+        /deep/ {
+          &.el-button {
+            width: 92px;
+            background-color: transparent;
+            border-radius: 2px;
+            border: 1px solid $border;
+            color: $menuActiveText;
+            box-sizing: border-box;
+
+            &:hover {
+              border-color: $menuActiveText;
+              background-color: $menuActiveText;
+              color: #ffffff;
+            }
+          }
         }
       }
     }

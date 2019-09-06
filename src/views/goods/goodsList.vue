@@ -20,6 +20,9 @@
           <filter-category class="goods-item-category lastItem" :category="dosage"/>
         </div>
       </div>
+      <div class="goods-filter-more">
+        <el-button type="primary" class="filter-more">更多<i class="el-icon-arrow-down el-icon--right"></i></el-button>
+      </div>
     </div>
     <div class="line"></div>
     <div class="goods-content">
@@ -67,11 +70,21 @@
         </div>
         <el-button type="primary">导出列表</el-button>
       </div>
-      <el-checkbox-group class="goods-table" v-model="selectionGroup">
+      <el-checkbox-group ref="goodsTable" class="goods-table" v-model="selectionGroup">
         <el-checkbox-button v-for="(item, index) in goodsList" :key="index" class="units" :label="item">
-          <goods-unit :group="selectionGroup" :item="item"/>
+          <goods-unit
+            :group="selectionGroup"
+            :item="item"
+            :containerWidth="containerWidth"
+            :containerOffsetLeft="containerOffsetLeft"
+          />
         </el-checkbox-button>
       </el-checkbox-group>
+      <div class="convenientHandle">
+        <el-button type="primary" class="handle" @click.prevent="handleAll">全选</el-button>
+        <el-button type="primary" class="handle" @click.prevent="handleNone">取消全选</el-button>
+        <el-button type="primary" class="handle" @click.prevent="handleInvert">反选</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -122,8 +135,10 @@
                 sales: '销量',
                 fresh: '新品',
                 price: '价格',
-                goodsList: ['1','1','1','1','1','1','1','1','1','1','1'],
-                selectionGroup: []
+                goodsList: ['1','2','3','4','5','6','7','8','9','10','11'],
+                selectionGroup: [],
+                containerWidth: '',
+                containerOffsetLeft: ''
             }
         },
         components: {filterCategory, priceArea, goodsUnit},
@@ -142,7 +157,22 @@
             },
             priceCommand(price){
                 this.price = price
+            },
+            handleAll(){
+                this.selectionGroup = this.goodsList
+            },
+            handleNone(){
+                this.selectionGroup = []
+            },
+            handleInvert(){
+                this.selectionGroup = this.goodsList.filter(item=>{
+                    return !this.selectionGroup.includes(item)
+                })
             }
+        },
+        mounted() {
+            this.containerWidth = this.$refs.goodsTable.$el.offsetWidth;
+            this.containerOffsetLeft = this.$refs.goodsTable.$el.getBoundingClientRect().left;
         }
     }
 </script>

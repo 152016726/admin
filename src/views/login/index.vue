@@ -48,8 +48,18 @@
             登陆系统
           </a>
         </el-form>
+        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
+          第三方登录
+        </el-button>
       </div>
     </div>
+    <el-dialog title="第三方登录" :visible.sync="showDialog">
+      暂未开放! ! !
+      <br>
+      <br>
+      <br>
+      <social-sign />
+    </el-dialog>
   </div>
 </template>
 
@@ -63,6 +73,7 @@
     import {isValidUsername, validPassword} from '@/utils/validate';
     import {getToken} from '@/utils/token'
     import {getInfo, setInfo, removeInfo} from '@/utils/info'
+    import SocialSign from './components/SocialSignin'
 
     export default {
         name: "login",
@@ -105,9 +116,11 @@
                 unlock,                 // 密码输入时图标
                 eye_open,               // 睁眼图标
                 eye_close,              // 闭眼图标
+                showDialog: false,
                 errorTips: ''
             }
         },
+        components: {SocialSign},
         created() {
             let token = getToken();
             // 有token强制跳转至登陆页则强制跳转回首页
@@ -203,5 +216,5 @@
 </script>
 
 <style lang="scss">
-  @import '../style/login.scss';
+  @import '../../style/login';
 </style>
