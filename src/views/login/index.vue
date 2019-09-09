@@ -6,36 +6,36 @@
 
         <el-form ref="loginForm" :model="loginForm" :rules="loginRules">
           <el-form-item prop="account" :class="{active: acActive}">
-            <div class="svg-container">
-              <div class="tag" :style="{backgroundImage: 'url('+(acActive ? accountOn : accountOff) +')'}"></div>
+            <div class="svg-container" :class="{active: acActive}">
+              <svg-icon icon-class="user" class-name="tag"></svg-icon>
             </div>
             <el-input
               v-model="loginForm.account"
               placeholder="请输入账号"
               type="text"
               name="account"
-              v-on:blur="acTextOnblur"
-              v-on:focus="acTextOnFocus"
+              @blur="acTextOnblur"
+              @keyup.native="acTextOnFocus"
             >
             </el-input>
           </el-form-item>
 
           <el-form-item prop="password" :class="{active: pwActive}">
-            <div class="svg-container">
-              <div class="tag" :style="{backgroundImage: 'url('+(pwActive ? lock : unlock) +')'}"></div>
+            <div class="svg-container" :class="{active: pwActive}">
+              <svg-icon icon-class="lock" class-name="tag"></svg-icon>
             </div>
             <el-input
               v-model="loginForm.password"
               placeholder="请输入密码"
               :type="passwordType"
               name="password"
-              v-on:blur="pwTextOnblur"
-              v-on:focus="pwTextOnFocus"
+              @blur="pwTextOnblur"
+              @keyup.native="pwTextOnFocus"
               @keyup.enter.native="submitData"
             >
             </el-input>
             <div class="svg-eye" @click.prevent="showPwd">
-              <div class="tag" :style="{backgroundImage: 'url('+(passwordType === 'password' ? eye_close : eye_open) +')'}"></div>
+              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" class-name="tag"></svg-icon>
             </div>
           </el-form-item>
 
@@ -53,6 +53,7 @@
         </el-button>
       </div>
     </div>
+
     <el-dialog title="第三方登录" :visible.sync="showDialog">
       暂未开放! ! !
       <br>
@@ -64,12 +65,6 @@
 </template>
 
 <script>
-    import accountOff from '@/assets/accountOff.png';
-    import accountOn from '@/assets/accountOn.png';
-    import unlock from '@/assets/ic_lock_off.png';
-    import lock from '@/assets/ic_lock_on.png';
-    import eye_open from '@/assets/eye-open.png';
-    import eye_close from '@/assets/eye-close.png';
     import {isValidUsername, validPassword} from '@/utils/validate';
     import {getToken} from '@/utils/token'
     import {getInfo, setInfo, removeInfo} from '@/utils/info'
@@ -110,12 +105,6 @@
                 icActive: false,         // 验证码是否被激活
                 imgCodeSrc: '',         // 验证码图片
                 imgVerifyToken: '',     // 验证码token
-                accountOff,             // 账号未输入时图标
-                accountOn,              // 账号输入时图标
-                lock,                   // 密码未输入时图标
-                unlock,                 // 密码输入时图标
-                eye_open,               // 睁眼图标
-                eye_close,              // 闭眼图标
                 showDialog: false,
                 errorTips: ''
             }
@@ -181,7 +170,7 @@
              * 账号失焦事件
              */
             acTextOnblur() {
-                if (this.loginForm.account === '') {
+                if (!this.loginForm.account) {
                     this.acActive = false;
                 }
             },
@@ -195,7 +184,7 @@
              * 密码失焦事件
              */
             pwTextOnblur() {
-                if (this.loginForm.password === '') {
+                if (!this.loginForm.password) {
                     this.pwActive = false;
                 }
             },

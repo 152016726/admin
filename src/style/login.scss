@@ -32,10 +32,13 @@ $bg:#2d3a4b;
 
     //background: rgba(0, 0, 0, 0.1);
     .svg-container {
-      width: 11.67%;
-      padding: 10px 10px;
+      width: 9%;
+      padding: 0px 10px;
       height: 100%;
       box-sizing: border-box;
+      &.active{
+        color: #4486FF;
+      }
 
       .tag {
         height: 100%;
@@ -45,7 +48,7 @@ $bg:#2d3a4b;
       }
     }
     .el-input {
-      width: 88.33%;
+      width: 91%;
       height: 100%;
       font-size: 16px;
       color: #3F4457;
@@ -86,13 +89,12 @@ $bg:#2d3a4b;
       -moz-transform: translateY(-50%);
       width: 11.67%;
       height: 18px;
+      line-height: 18px;
       padding: 0 10px;
       box-sizing: border-box;
       .tag {
         height: 100%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center center;
+        background: none;
       }
     }
   }

@@ -194,7 +194,7 @@ const validPassword =str => /^[\w_-]{6,20}$/.test(str);
 // 限定管理员账号
 const isValidUsername = (str) => {
   const validMap = ['admin', 'editor']
-  return validMap.indexOf(str.trim()) >= 0
+  return str ? validMap.indexOf(str.trim()) >= 0 : false
 }
 
 // 验证路由

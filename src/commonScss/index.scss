@@ -96,3 +96,6 @@ $bg:#283443;
   height: 10px;
   background-color: #DDDDDD;
 }
+
+input::-ms-clear{display: none;}
+input::-ms-reveal{display: none;}
