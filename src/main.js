@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
+import { Modal } from 'iview';
+import 'iview/dist/styles/iview.css';
 import router from './router'
 import ElementUI from 'element-ui'
 import store from './store';
@@ -11,7 +13,10 @@ import '@/commonScss/index.scss'    // global css
 import './permission' // permission control
 import '@/icons'      // icons
 
+
 Vue.config.productionTip = false
+
+Vue.component('Modal', Modal);
 
 Vue.use(ElementUI);
 

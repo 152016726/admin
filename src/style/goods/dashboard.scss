@@ -31,6 +31,18 @@
       .goods-handle{
         margin-bottom: 20px;
       }
+      .el-table{
+        /deep/{
+          .el-table__row{
+            min-height: 0px;
+            transition: min-height 2s ease;
+            -moz-transition: min-height 2s ease; /* Firefox 4 */
+            -webkit-transition: min-height 2s ease; /* Safari 和 Chrome */
+            -o-transition: min-height 2s ease; /* Opera */
+          }
+        }
+      }
+
     }
   }
 

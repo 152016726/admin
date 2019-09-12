@@ -46,3 +46,23 @@
 .breadcrumb-leave-active {
   position: absolute;
 }
+
+/* table transition */
+.table-enter-active,
+.table-leave-active {
+  transition: all .5s;
+}
+
+.table-enter,
+.table-leave-active {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.table-move {
+  transition: all .5s;
+}
+
+.table-leave-active {
+  position: absolute;
+}

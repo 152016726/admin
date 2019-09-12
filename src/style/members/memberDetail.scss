@@ -1,0 +1,14 @@
+@import "~@/commonScss/variables.scss";
+.memberDetail{
+  padding: 10px 10px;
+  .userInfo{
+    .tab{
+      margin-right: 80px;
+      /deep/{
+        .el-form-item__label{
+          padding-right: 25px;
+        }
+      }
+    }
+  }
+}

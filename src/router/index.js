@@ -76,6 +76,36 @@ export const asyncRoutes = [
     ]
   },
   {
+    path: '/member',
+    name: 'member',
+    component: Layout,
+    redirect: '/member/memberManagement',
+    meta: {title: '会员管理', icon: 'documentation'},
+    children: [
+      {
+        path: 'memberManagement',
+        name: 'memberManagement',
+        component: () => import('@/views/members/management'),
+        meta: {title: '会员卡管理', icon: 'clipboard' },
+        children:[
+          {
+            path: 'memberDetail',
+            name: 'memberDetail',
+            component: () => import('@/views/members/memberDetail'),
+            meta: {title: '详情'},
+            hidden: true
+          }
+        ]
+      },
+      {
+        path: 'registerCard',
+        name: 'registerCard',
+        component: () => import('@/views/members/registerCard'),
+        meta: {title: '会员卡办理', icon: 'star'}
+      }
+    ]
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('@/views/404'),

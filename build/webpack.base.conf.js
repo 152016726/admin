@@ -38,7 +38,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client'),resolve('node_modules/iview')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -62,7 +62,8 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
         include: [
           /src/,
-          '/node_modules/element-ui/lib/theme-chalk/index.css'
+          '/node_modules/element-ui/lib/theme-chalk/index.css',
+          '/node_modules/iview/dist/styles/iview.css'
         ]
       },
       {

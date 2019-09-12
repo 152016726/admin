@@ -1,0 +1,18 @@
+@import "~@/commonScss/variables.scss";
+.registerCard{
+  width: 100%;
+  .handle{
+    padding: 10px 10px;
+    border-bottom: 1px solid $border;
+  }
+  .cardInfo{
+    .el-input{
+      width: 300px;
+      border:1px solid $border;
+      &.noneBorder{
+        border: none;
+      }
+    }
+  }
+
+}

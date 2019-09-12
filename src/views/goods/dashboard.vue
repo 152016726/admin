@@ -184,11 +184,13 @@
             <template slot-scope="scope">
               <el-button
                 size="mini"
-                @click.prevent.stop="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                @click.prevent.stop="handleEdit(scope.$index, scope.row)">编辑
+              </el-button>
               <el-button
                 size="mini"
                 type="danger"
-                @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                @click="handleDelete(scope.$index, scope.row)">删除
+              </el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -212,72 +214,72 @@
                 days: '',
                 tableData: [
                     {
-                    goodsCode: '01010204001',
-                    nationCode: 'A12A020301',
-                    approval: ' 国药准字H14022744',
-                    categoryName: '阿司匹林肠溶片',
-                    materialCategory: '药品-西药-非处方药',
-                    brand: '仁和',
-                    size: '50mg*25片*3板',
-                    unit: '盒',
-                    price: '¥ 29.90',
-                    factory: ' 大同市利群药业有限公司',
-                    area: '山西省大同市湖东经济开发区',
-                    time: '24月',
-                    specialCategory: '麻醉药品',
-                    goodsState: '有效'
-                }, {
-                    goodsCode: '01010204001',
-                    nationCode: 'A12A020301',
-                    approval: ' 国药准字H14022744',
-                    categoryName: '阿司匹林肠溶片',
-                    materialCategory: '药品-西药-非处方药',
-                    brand: '仁和',
-                    size: '50mg*25片*3板',
-                    unit: '盒',
-                    price: '¥ 29.90',
-                    factory: ' 大同市利群药业有限公司',
-                    area: '山西省大同市湖东经济开发区',
-                    time: '24月',
-                    specialCategory: '精神药品',
-                    goodsState: '已冻结'
-                }, {
-                    goodsCode: '01010204001',
-                    nationCode: 'A12A020301',
-                    approval: ' 国药准字H14022744',
-                    categoryName: '阿司匹林肠溶片',
-                    materialCategory: '药品-西药-非处方药',
-                    brand: '仁和',
-                    size: '50mg*25片*3板',
-                    unit: '盒',
-                    price: '¥ 29.90',
-                    factory: ' 大同市利群药业有限公司',
-                    area: '山西省大同市湖东经济开发区',
-                    time: '24月',
-                    specialCategory: '毒性药品',
-                    goodsState: '停止销售'
-                }, {
-                    goodsCode: '01010204001',
-                    nationCode: 'A12A020301',
-                    approval: ' 国药准字H14022744',
-                    categoryName: '阿司匹林肠溶片',
-                    materialCategory: '药品-西药-非处方药',
-                    brand: '仁和',
-                    size: '50mg*25片*3板',
-                    unit: '盒',
-                    price: '¥ 29.90',
-                    factory: ' 大同市利群药业有限公司',
-                    area: '山西省大同市湖东经济开发区',
-                    time: '24月',
-                    specialCategory: '放射药品',
-                    goodsState: '停止采购'
-                }],
+                        goodsCode: '01010204001',
+                        nationCode: 'A12A020301',
+                        approval: ' 国药准字H14022744',
+                        categoryName: '阿司匹林肠溶片',
+                        materialCategory: '药品-西药-非处方药',
+                        brand: '仁和',
+                        size: '50mg*25片*3板',
+                        unit: '盒',
+                        price: '¥ 29.90',
+                        factory: ' 大同市利群药业有限公司',
+                        area: '山西省大同市湖东经济开发区',
+                        time: '24月',
+                        specialCategory: '麻醉药品',
+                        goodsState: '有效'
+                    }, {
+                        goodsCode: '01010204001',
+                        nationCode: 'A12A020301',
+                        approval: ' 国药准字H14022744',
+                        categoryName: '阿司匹林肠溶片',
+                        materialCategory: '药品-西药-非处方药',
+                        brand: '仁和',
+                        size: '50mg*25片*3板',
+                        unit: '盒',
+                        price: '¥ 29.90',
+                        factory: ' 大同市利群药业有限公司',
+                        area: '山西省大同市湖东经济开发区',
+                        time: '24月',
+                        specialCategory: '精神药品',
+                        goodsState: '已冻结'
+                    }, {
+                        goodsCode: '01010204001',
+                        nationCode: 'A12A020301',
+                        approval: ' 国药准字H14022744',
+                        categoryName: '阿司匹林肠溶片',
+                        materialCategory: '药品-西药-非处方药',
+                        brand: '仁和',
+                        size: '50mg*25片*3板',
+                        unit: '盒',
+                        price: '¥ 29.90',
+                        factory: ' 大同市利群药业有限公司',
+                        area: '山西省大同市湖东经济开发区',
+                        time: '24月',
+                        specialCategory: '毒性药品',
+                        goodsState: '停止销售'
+                    }, {
+                        goodsCode: '01010204001',
+                        nationCode: 'A12A020301',
+                        approval: ' 国药准字H14022744',
+                        categoryName: '阿司匹林肠溶片',
+                        materialCategory: '药品-西药-非处方药',
+                        brand: '仁和',
+                        size: '50mg*25片*3板',
+                        unit: '盒',
+                        price: '¥ 29.90',
+                        factory: ' 大同市利群药业有限公司',
+                        area: '山西省大同市湖东经济开发区',
+                        time: '24月',
+                        specialCategory: '放射药品',
+                        goodsState: '停止采购'
+                    }],
                 multipleSelection: [],
                 filterObj: {}
             }
         },
-        computed:{
-            isShowTable(){
+        computed: {
+            isShowTable() {
                 return this.$route.fullPath === '/baseInfo/baseList'
             }
         },
@@ -292,34 +294,34 @@
             /**
              * 打印
              */
-            handle_print(){
+            handle_print() {
                 window.print();
             },
             /**
              * 导出
              */
-            handle_export(){
+            handle_export() {
                 console.log('导出')
             },
             /**
              * 筛选去重出可筛选项
              */
-            filterDataset(){
+            filterDataset() {
                 let filterObj = {};
                 // 获取各个列项的值
-                this.tableData.forEach(item=>{
-                    for(let key in item){
-                        if(!filterObj[key]){
+                this.tableData.forEach(item => {
+                    for (let key in item) {
+                        if (!filterObj[key]) {
                             filterObj[key] = [item[key]];
-                        }else{
+                        } else {
                             filterObj[key].push(item[key])
                         }
                     }
                 });
                 // 将列项的值去重转化
-                for(let key in filterObj){
-                    let singleArr =Array.from(new Set(filterObj[key]))
-                    filterObj[key] = singleArr.map(item=>{
+                for (let key in filterObj) {
+                    let singleArr = Array.from(new Set(filterObj[key]))
+                    filterObj[key] = singleArr.map(item => {
                         return {text: item, value: item}
                     })
                 }
@@ -360,5 +362,5 @@
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/goods/dashboard";
+  @import "../../style/goods/dashboard";
 </style>
