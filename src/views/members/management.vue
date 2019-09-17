@@ -62,7 +62,7 @@
         <div class="goods-handle clearfix">
           <el-button type="primary" class="fl" @click="isChangeLevel = true">级别变更</el-button>
           <el-button type="primary" class="fl" @click="isIntegerCount = true">积分加减</el-button>
-          <el-button type="primary" class="fl">办理</el-button>
+          <el-button type="primary" class="fl" @click="gotoRegister">办理</el-button>
           <el-button type="primary" class="fl">注销</el-button>
         </div>
         <el-table
@@ -94,7 +94,11 @@
                            width="140" show-overflow-tooltip></el-table-column>
           <el-table-column prop="date" label="办卡日期" width="120"></el-table-column>
           <el-table-column prop="recent" label="最近消费时间" show-overflow-tooltip width="120"></el-table-column>
-          <el-table-column prop="cost" label="近一年消费金额" width="120"></el-table-column>
+          <el-table-column label="近一年消费金额" width="120">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.cost"></price-tag>
+            </template>
+          </el-table-column>
           <el-table-column prop="frequency" label="近一年消费频次" width="120"></el-table-column>
           <el-table-column prop="profit" label="近一年毛利" width="120"></el-table-column>
           <el-table-column prop="handler" label="办卡操作员" sortable :filters="filterObj['handler']"
@@ -170,7 +174,9 @@
 </template>
 
 <script>
+    import priceTag from "./components/priceTag";
     export default {
+        components: {priceTag},
         name: "memberManage",
         data() {
             return {
@@ -263,11 +269,11 @@
                 reason: ''
             }
         },
-        computed: {
-            isShowTable() {
-                return this.$route.fullPath === '/member/memberManagement'
-            }
-        },
+          computed: {
+              isShowTable() {
+                  return this.$route.fullPath === '/member/memberManagement'
+              }
+          },
         methods: {
             levelOk() {
                 console.log(this.changeLevel, '会员等级')
@@ -289,6 +295,11 @@
             integerCancel(){
                 this.changeInteger = '1'
                 this.reason = ''
+            },
+            gotoRegister(){
+              this.$router.push({
+                  name: 'registerCard'
+              })
             },
             /**
              * 选中项

@@ -23,12 +23,12 @@ export const constantRoutes = [
     name: '/',
     component: Layout,
     redirect: '/dashboard',
-    meta: {title: '基础数据' , icon: 'dashboard'},
+    meta: {title: '基础数据', icon: 'dashboard'},
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/goods/goodsList'),
-      meta: {title: '商品清单' , icon: 'dashboard', affix: true},
+      meta: {title: '商品清单', icon: 'dashboard', affix: true},
     }]
   }
 ]
@@ -39,16 +39,16 @@ export const asyncRoutes = [
     name: 'baseInfo',
     component: Layout,
     redirect: '/baseInfo/baseList',
-    meta: {title: '基础数据' , icon: 'dashboard'},
+    meta: {title: '基础数据', icon: 'dashboard'},
     children: [{
       path: 'baseList',
       name: 'baseList',
       component: () => import('@/views/goods/dashboard'),
-      meta: {title: '基础数据' , icon: 'dashboard', affix: true},
-      children:[{
+      meta: {title: '基础数据', icon: 'dashboard', affix: true},
+      children: [{
         path: 'goodsDetail',
         name: 'goodsDetail',
-        component: ()=> import('@/views/goods/goodsDetail'),
+        component: () => import('@/views/goods/goodsDetail'),
         meta: {title: '详情'},
         hidden: true
       }]
@@ -64,13 +64,13 @@ export const asyncRoutes = [
       {
         path: 'table',
         name: 'table',
-        component: ()=> import('@/views/table'),
-        meta: {title: '商品类别', icon: 'table',roles: ['editor']}
+        component: () => import('@/views/table'),
+        meta: {title: '商品类别', icon: 'table', roles: ['editor']}
       },
       {
         path: 'tree',
         name: 'tree',
-        component: ()=> import('@/views/table'),
+        component: () => import('@/views/table'),
         meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
       }
     ]
@@ -86,8 +86,8 @@ export const asyncRoutes = [
         path: 'memberManagement',
         name: 'memberManagement',
         component: () => import('@/views/members/management'),
-        meta: {title: '会员卡管理', icon: 'clipboard' },
-        children:[
+        meta: {title: '会员卡管理', icon: 'clipboard'},
+        children: [
           {
             path: 'memberDetail',
             name: 'memberDetail',
@@ -101,7 +101,23 @@ export const asyncRoutes = [
         path: 'registerCard',
         name: 'registerCard',
         component: () => import('@/views/members/registerCard'),
-        meta: {title: '会员卡办理', icon: 'star'}
+        meta: {title: '会员卡办理', icon: 'star'},
+        hidden: true
+      },
+      {
+        path: 'upgradeRules',
+        name: 'upgradeRules',
+        component: () => import('@/views/members/upgradeRules'),
+        meta: {title: '升级规则', icon: 'chart'},
+        children: [
+          {
+            path: 'upgradeDetail',
+            name: 'upgradeDetail',
+            component: () => import('@/views/members/upgradeDetail'),
+            meta: {title: '详情'},
+            hidden: true
+          }
+        ]
       }
     ]
   },

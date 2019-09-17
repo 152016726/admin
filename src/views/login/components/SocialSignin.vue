@@ -52,9 +52,9 @@ export default {
     .wx-svg-container,
     .qq-svg-container {
       display: inline-block;
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
       text-align: center;
       padding-top: 1px;
       border-radius: 4px;

@@ -1,0 +1,46 @@
+@import "~@/commonScss/variables.scss";
+.upgradeDetail{
+  width: 100%;
+  .handle{
+    padding: 10px 10px;
+    border-bottom: 1px solid $border;
+  }
+  .orgForm{
+    padding: 20px 20px;
+    .row{
+      display: flex;
+      line-height: 30px;
+      .columnTitle{
+        width: 100px;
+        text-align: left;
+      }
+      .columnContent{
+        display: flex;
+        .types{
+          width: 100px;
+          text-align: left;
+        }
+        .details{
+          .strip{
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            .description{
+              width: 120px;
+            }
+            /deep/{
+              .el-input-number{
+                width: 120px;
+                margin: 0 10px;
+                border: 1px solid $border;
+              }
+            }
+          }
+        }
+      }
+    }
+    .org{
+      margin-bottom: 20px;
+    }
+  }
+}

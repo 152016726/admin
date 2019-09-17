@@ -1,13 +1,26 @@
 @import "~@/commonScss/variables.scss";
-.memberDetail{
+
+.memberDetail {
   padding: 10px 10px;
-  .userInfo{
-    .tab{
+
+  .userInfo {
+    .tab {
       margin-right: 80px;
-      /deep/{
-        .el-form-item__label{
+
+      /deep/ {
+        .el-form-item__label {
           padding-right: 25px;
         }
+      }
+    }
+  }
+
+  .goods-card {
+    /deep/ {
+      .el-tabs__item.is-active {
+        background-color: $menuActiveText;
+        color: #ffffff;
+        border-color: $border;
       }
     }
   }

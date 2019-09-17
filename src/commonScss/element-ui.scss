@@ -43,8 +43,44 @@
   }
 }
 
+.el-input{
+  line-height: 30px;
+  height: 30px;
+}
 .el-input input {
   background: transparent !important;
   border: 0px !important;
   -webkit-appearance: none !important;
+  font-size: 12px;
+  line-height: 30px;
+  height: 30px;
+}
+
+.el-button{
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.el-input__icon{
+  line-height: 30px;
+}
+.el-select-dropdown__item{
+  height: 26px;
+  line-height: 26px;
+}
+.el-select{
+  height: 30px;
+}
+.el-input__inner{
+  height: 30px;
+  line-height: 30px;
+}
+.el-date-editor .el-range__icon{
+  line-height: 22px;
+}
+.el-date-editor .el-range-separator{
+  line-height: 22px;
+}
+.el-date-editor .el-range-input{
+  font-size: 12px;
 }

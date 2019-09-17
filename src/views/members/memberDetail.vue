@@ -41,21 +41,46 @@
           ref="multipleTable"
           :data="tableData"
           tooltip-effect="dark"
-          style="width: 100%"
+          style="width: 1602px"
+          :border="true"
         >
           <el-table-column type="index" label="序列" width="50"></el-table-column>
-          <el-table-column prop="time" label="消费时间" width="100"></el-table-column>
+          <el-table-column prop="time" label="消费时间" width="200"></el-table-column>
           <el-table-column prop="serialNumber" label="流水号" width="100"></el-table-column>
           <el-table-column prop="machine" label="业务机构" width="200"></el-table-column>
           <el-table-column prop="no" label="产品(编码/名称/规格 (剂型)/单位/生产厂家)" width="300"></el-table-column>
-          <el-table-column prop="salePrice" label="零售价" width="100"></el-table-column>
-          <el-table-column prop="dealPrice" label="成交价" width="100"></el-table-column>
+          <el-table-column label="零售价" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.salePrice"></price-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="成交价" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.dealPrice"></price-tag>
+            </template>
+          </el-table-column>
           <el-table-column prop="mount" label="数量" width="50"></el-table-column>
           <el-table-column prop="approval" label="批号" width="100"></el-table-column>
-          <el-table-column prop="receivable" label="应收金额" width="100"></el-table-column>
-          <el-table-column prop="receipts" label="实收金额" width="100"></el-table-column>
-          <el-table-column prop="cost" label="成本金额" width="100"></el-table-column>
-          <el-table-column prop="discounts" label="优惠金额" width="100"></el-table-column>
+          <el-table-column label="应收金额" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.receivable"></price-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="实收金额" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.receipts"></price-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="成本金额" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.cost"></price-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="优惠金额" width="100">
+            <template slot-scope="scope">
+              <price-tag v-model="scope.row.discounts"></price-tag>
+            </template>
+          </el-table-column>
         </el-table>
       </el-tab-pane>
       <el-tab-pane label="行为日志" name="second">行为日志</el-tab-pane>
@@ -67,7 +92,10 @@
 </template>
 
 <script>
+    import priceTag from "./components/priceTag";
+
     export default {
+        components: {priceTag},
         name: "memberDetail",
         data() {
             return {
