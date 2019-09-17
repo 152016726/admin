@@ -1,0 +1,110 @@
+<template>
+  <div class="activityDetail">
+    <div class="handle">
+      <el-button type="primary" class="save">保存</el-button>
+      <el-button type="primary" class="cancel">取消</el-button>
+    </div>
+    <div class="orgForm">
+      <div class="row org">
+        <div class="columnTitle"><span>业务机构</span></div>
+        <div class="columnContent"><span>身康大药房</span></div>
+      </div>
+      <div class="row">
+        <div class="columnTitle"><span>活动名称</span></div>
+        <div class="columnContent">
+          <div class="details">
+            <div class="strip">
+              <el-input v-model="" placeholder="请输入活动名称"></el-input>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columnTitle"><span>活动日期</span></div>
+        <div class="columnContent">
+          <div class="details">
+            <div class="strip">
+              <el-date-picker
+                v-model=""
+                type="datetimerange"
+                range-separator="~"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期">
+              </el-date-picker>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="columnTitle"><span></span></div>
+        <div class="columnContent">
+          <div class="details">
+            <div class="strip direction">
+              <div class="rules-handle clearfix">
+                <el-button type="primary" class="fl">添加商品</el-button>
+                <el-button type="primary" class="fl" @click="editColumn">添加优惠券</el-button>
+                <el-button type="primary" class="fl">删除</el-button>
+              </div>
+              <el-table
+                ref="multipleTable"
+                :data="tableData"
+                tooltip-effect="dark"
+                style="width: 100%"
+                :border="true"
+                @selection-change="handleSelectionChange"
+              >
+                <el-table-column
+                  type="selection"
+                  width="55">
+                </el-table-column>
+                <el-table-column label="兑换物" width="600">
+                  <template slot-scope="scope">
+                    <div>
+
+                    </div>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="createTime" label="创建时间" width="160"></el-table-column>
+                <el-table-column label="是否启用">
+                  <template slot-scope="scope">
+                    <el-switch
+                      v-model="!scope.row.isOpened"
+                      @change=""
+                      active-color="#13ce66"
+                      inactive-color="#ff4949">
+                    </el-switch>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="organization" label="业务机构"></el-table-column>
+              </el-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+    export default {
+        name: "activityDetail",
+        data(){
+            return{
+                tableData: [
+                    {
+                      transfer: {
+
+                      }
+                    }
+                ]
+            }
+        },
+        methods:{
+
+        }
+    }
+</script>
+
+<style lang="scss" scoped>
+  @import "~@/style/members/activity/activityDetail.scss";
+</style>

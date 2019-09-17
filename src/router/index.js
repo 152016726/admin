@@ -55,27 +55,6 @@ export const asyncRoutes = [
     }]
   },
   {
-    path: '/useForm',
-    component: Layout,
-    name: 'useForm',
-    meta: {title: '商品列表', icon: 'form', roles: ['editor']},
-    redirect: '/useForm/table',
-    children: [
-      {
-        path: 'table',
-        name: 'table',
-        component: () => import('@/views/table'),
-        meta: {title: '商品类别', icon: 'table', roles: ['editor']}
-      },
-      {
-        path: 'tree',
-        name: 'tree',
-        component: () => import('@/views/table'),
-        meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
-      }
-    ]
-  },
-  {
     path: '/member',
     name: 'member',
     component: Layout,
@@ -145,6 +124,27 @@ export const asyncRoutes = [
         name: 'memberDay',
         component: () => import('@/views/members/day/memberDay'),
         meta: {title: '会员日活动', icon: 'link'}
+      }
+    ]
+  },
+  {
+    path: '/useForm',
+    component: Layout,
+    name: 'useForm',
+    meta: {title: '商品列表', icon: 'form', roles: ['editor']},
+    redirect: '/useForm/table',
+    children: [
+      {
+        path: 'table',
+        name: 'table',
+        component: () => import('@/views/table'),
+        meta: {title: '商品类别', icon: 'table', roles: ['editor']}
+      },
+      {
+        path: 'tree',
+        name: 'tree',
+        component: () => import('@/views/table'),
+        meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
       }
     ]
   },
