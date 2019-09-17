@@ -76,5 +76,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/style/members/upgradeDetail.scss";
+  @import "~@/style/members/upgrade/upgradeDetail.scss";
 </style>

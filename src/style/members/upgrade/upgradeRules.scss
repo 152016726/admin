@@ -1,10 +1,9 @@
 @import "~@/commonScss/variables.scss";
-
-.memberManage {
-  &-container {
-    width: 100%;
-    background-color: #ffffff;
-
+.upgradeRules{
+  width: 100%;
+  background-color: #ffffff;
+  .show-table{
+    height: 100%;
     .searchTitle {
       display: flex;
       flex-wrap: wrap;
@@ -27,15 +26,14 @@
         padding: 0 50px;
       }
     }
-    .activeColor{
-      color: $menuActiveText;
-    }
-
-    .goods-form {
+    .rulesForm{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100% - 60px);
       padding: 10px 10px;
       box-sizing: border-box;
-
-      .goods-handle {
+      .rules-handle {
         margin-bottom: 20px;
 
         /deep/ {
@@ -55,48 +53,35 @@
           }
         }
       }
-
-      .el-table {
-        /deep/ {
-          .el-table__row {
-            min-height: 0px;
-            transition: min-height 2s ease;
-            -moz-transition: min-height 2s ease; /* Firefox 4 */
-            -webkit-transition: min-height 2s ease; /* Safari 和 Chrome */
-            -o-transition: min-height 2s ease; /* Opera */
-          }
-
-          tr.current-row > td {
-            background-color: #9cbeea;
+      .el-table{
+        /deep/{
+          .el-table__body-wrapper{
+            height: calc(100% - 48px);
           }
         }
       }
+      .convenientHandle {
+        margin-top: 20px;
+        .handle {
+          /deep/ {
+            &.el-button {
+              width: 92px;
+              background-color: transparent;
+              border-radius: 2px;
+              border: 1px solid $border;
+              color: $menuActiveText;
+              box-sizing: border-box;
 
+              &:hover {
+                border-color: $menuActiveText;
+                background-color: $menuActiveText;
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
-  }
-}
-
-.dialog {
-  display: flex;
-  margin: 10px 0;
-
-  .note {
-    width: 50px;
-  }
-
-  /deep/ {
-    .el-input-number {
-      width: 100px;
-      border: 1px solid $border;
-    }
-
-    .el-radio__label{
-      padding-left: 10px;
-    }
-  }
 }

@@ -1,0 +1,110 @@
+@import "~@/commonScss/variables.scss";
+
+.memberManage {
+  &-container {
+    width: 100%;
+    background-color: #ffffff;
+    .show-table{
+      height: 100%;
+      .searchTitle {
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+
+        .el-input {
+          width: auto;
+        }
+
+        .el-input, .el-select, .el-date-editor {
+          margin-top: 10px;
+          margin-left: 10px;
+          border: 1px solid #DDDDDD;
+        }
+
+        .search-btn {
+          margin-top: 10px;
+          margin-left: 10px;
+          height: 30px;
+          padding: 0 50px;
+        }
+      }
+      .activeColor{
+        color: $menuActiveText;
+      }
+
+      .goods-form {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 100px);
+        padding: 10px 10px;
+        box-sizing: border-box;
+
+        .goods-handle {
+          margin-bottom: 20px;
+
+          /deep/ {
+            .el-button {
+              width: 92px;
+              background-color: transparent;
+              border-radius: 2px;
+              border: 1px solid $border;
+              color: $menuActiveText;
+              box-sizing: border-box;
+
+              &:hover {
+                border-color: $menuActiveText;
+                background-color: $menuActiveText;
+                color: #ffffff;
+              }
+            }
+          }
+        }
+
+        .el-table {
+          /deep/ {
+            .el-table__row {
+              min-height: 0px;
+              transition: min-height 2s ease;
+              -moz-transition: min-height 2s ease; /* Firefox 4 */
+              -webkit-transition: min-height 2s ease; /* Safari 和 Chrome */
+              -o-transition: min-height 2s ease; /* Opera */
+            }
+
+            tr.current-row > td {
+              background-color: #9cbeea;
+            }
+            .el-table__body-wrapper{
+              height: calc(100% - 60px);
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &-text {
+    font-size: 30px;
+    line-height: 46px;
+  }
+}
+
+.dialog {
+  display: flex;
+  margin: 10px 0;
+
+  .note {
+    width: 50px;
+  }
+
+  /deep/ {
+    .el-input-number {
+      width: 100px;
+      border: 1px solid $border;
+    }
+
+    .el-radio__label{
+      padding-left: 10px;
+    }
+  }
+}

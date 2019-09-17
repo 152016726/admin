@@ -85,13 +85,13 @@ export const asyncRoutes = [
       {
         path: 'memberManagement',
         name: 'memberManagement',
-        component: () => import('@/views/members/management'),
+        component: () => import('@/views/members/member/management'),
         meta: {title: '会员卡管理', icon: 'clipboard'},
         children: [
           {
             path: 'memberDetail',
             name: 'memberDetail',
-            component: () => import('@/views/members/memberDetail'),
+            component: () => import('@/views/members/member/memberDetail'),
             meta: {title: '详情'},
             hidden: true
           }
@@ -100,24 +100,51 @@ export const asyncRoutes = [
       {
         path: 'registerCard',
         name: 'registerCard',
-        component: () => import('@/views/members/registerCard'),
+        component: () => import('@/views/members/member/registerCard'),
         meta: {title: '会员卡办理', icon: 'star'},
         hidden: true
       },
       {
         path: 'upgradeRules',
         name: 'upgradeRules',
-        component: () => import('@/views/members/upgradeRules'),
+        component: () => import('@/views/members/upgrade/upgradeRules'),
         meta: {title: '升级规则', icon: 'chart'},
         children: [
           {
             path: 'upgradeDetail',
             name: 'upgradeDetail',
-            component: () => import('@/views/members/upgradeDetail'),
+            component: () => import('@/views/members/upgrade/upgradeDetail'),
             meta: {title: '详情'},
             hidden: true
           }
         ]
+      },
+      {
+        path: 'integralRules',
+        name: 'integralRules',
+        component: () => import('@/views/members/integral/integralRules'),
+        meta: {title: '积分规则', icon: 'language'},
+        children: [
+          {
+            path: 'integralDetail',
+            name: 'integralDetail',
+            component: () => import('@/views/members/integral/integralDetail'),
+            meta: {title: '详情'},
+            hidden: true
+          }
+        ]
+      },
+      {
+        path: 'memberActivity',
+        name: 'memberActivity',
+        component: () => import('@/views/members/activity/memberActivity'),
+        meta: {title: '积分活动', icon: 'size'}
+      },
+      {
+        path: 'memberDay',
+        name: 'memberDay',
+        component: () => import('@/views/members/day/memberDay'),
+        meta: {title: '会员日活动', icon: 'link'}
       }
     ]
   },

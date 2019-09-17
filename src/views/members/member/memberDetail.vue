@@ -92,7 +92,7 @@
 </template>
 
 <script>
-    import priceTag from "./components/priceTag";
+    import priceTag from "../components/priceTag";
 
     export default {
         components: {priceTag},
@@ -139,5 +139,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/style/members/memberDetail.scss";
+  @import "~@/style/members/member/memberDetail.scss";
 </style>

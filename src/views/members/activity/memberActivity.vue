@@ -1,6 +1,6 @@
 <template>
-  <div class="upgradeRules">
-    <div v-if="isShowTable">
+  <div class="memberActivity">
+    <div v-if="isShowTable" class="show-table">
       <div class="searchTitle">
         <el-select placeholder="按业务机构筛选" v-model="filterOrg">
           <el-option
@@ -32,22 +32,15 @@
             type="selection"
             width="55">
           </el-table-column>
-          <el-table-column label="银卡升级规则" width="600">
+          <el-table-column label="活动编号" width="120" prop="activityNo"></el-table-column>
+          <el-table-column label="活动名称" width="120" prop="activityName"></el-table-column>
+          <el-table-column label="活动日期" width="600">
             <template slot-scope="scope">
-              <span>
-                最近一年消费金额达到{{scope.row.silverCard.minAmount}}元，
-                最近一年消费频次达到{{scope.row.silverCard.frequency}}次，
-                最近一年毛利达到{{scope.row.silverCard.profits}}元
-              </span>
-            </template>
-          </el-table-column>
-          <el-table-column label="金卡升级规则" width="600">
-            <template slot-scope="scope">
-              <span>
-                最近一年消费金额达到{{scope.row.goldCard.minAmount}}元，
-                最近一年消费频次达到{{scope.row.goldCard.frequency}}次，
-                最近一年毛利达到{{scope.row.goldCard.profits}}元
-              </span>
+              <div>
+                <span>{{scope.row.effectiveBegin}}</span>
+                <i>~</i>
+                <span>{{scope.row.effectiveEnd}}</span>
+              </div>
             </template>
           </el-table-column>
           <el-table-column prop="createTime" label="创建时间" width="160"></el-table-column>
@@ -63,6 +56,11 @@
           </el-table-column>
           <el-table-column prop="organization" label="业务机构"></el-table-column>
         </el-table>
+        <div class="convenientHandle">
+          <el-button type="primary" class="handle" @click.prevent="handleAll">全选</el-button>
+          <el-button type="primary" class="handle" @click.prevent="handleNone">取消全选</el-button>
+          <el-button type="primary" class="handle" @click.prevent="handleInvert">反选</el-button>
+        </div>
       </div>
     </div>
     <router-view></router-view>
@@ -71,7 +69,7 @@
 
 <script>
     export default {
-        name: "upgradeRules",
+        name: "memberActivity",
         data() {
             return {
                 filterOrg: '',
@@ -81,31 +79,19 @@
                 ],
                 tableData: [
                     {
-                        silverCard: {
-                            minAmount: '1000',
-                            frequency: '5',
-                            profits: '200'
-                        },
-                        goldCard: {
-                            minAmount: '1000',
-                            frequency: '5',
-                            profits: '200'
-                        },
+                        activityNo: '20190802001',
+                        activityName: '1周年庆',
+                        effectiveBegin: '2018-09-08 12:15:22',
+                        effectiveEnd: '2019-09-08 12:15:22',
                         createTime: '2018-09-08 12:15:22',
                         isOpened: true,
                         organization: '九江连锁企业'
                     },
                     {
-                        silverCard: {
-                            minAmount: '1000',
-                            frequency: '5',
-                            profits: '200'
-                        },
-                        goldCard: {
-                            minAmount: '1000',
-                            frequency: '5',
-                            profits: '200'
-                        },
+                        activityNo: '20190802001',
+                        activityName: '1周年庆',
+                        effectiveBegin: '2018-09-08 12:15:22',
+                        effectiveEnd: '2019-09-08 12:15:22',
                         createTime: '2018-09-08 12:15:22',
                         isOpened: true,
                         organization: '九江连锁企业'
@@ -116,7 +102,7 @@
         },
         computed: {
             isShowTable() {
-                return this.$route.fullPath === '/member/upgradeRules'
+                return this.$route.fullPath === '/member/memberActivity'
             }
         },
         methods:{
@@ -135,15 +121,28 @@
                         type: 'warning'
                     });
                 }else{
-                    this.$router.push({
-                        name: 'upgradeDetail'
-                    })
+                    // this.$router.push({
+                    //     name: 'upgradeDetail'
+                    // })
                 }
+            },
+            handleAll(){
+                this.tableData.forEach(row => {
+                    this.$refs.multipleTable.toggleRowSelection(row, true);
+                });
+            },
+            handleNone(){
+                this.$refs.multipleTable.clearSelection();
+            },
+            handleInvert(){
+                this.tableData.forEach(row => {
+                    this.$refs.multipleTable.toggleRowSelection(row, !this.multipleSelection.includes(row));
+                })
             }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-@import "~@/style/members/upgradeRules.scss";
+  @import "~@/style/members/activity/memberActivity.scss";
 </style>

@@ -84,5 +84,5 @@
 </script>
 
 <style lang="scss" scoped>
-@import "~@/style/members/registerCard.scss";
+@import "~@/style/members/member/registerCard.scss";
 </style>

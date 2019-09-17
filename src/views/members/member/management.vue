@@ -1,6 +1,6 @@
 <template>
   <div class="memberManage-container">
-    <div v-if="isShowTable">
+    <div v-if="isShowTable" class="show-table">
       <div class="searchTitle">
         <el-select placeholder="按业务机构筛选" v-model="offices">
           <el-option
@@ -174,7 +174,7 @@
 </template>
 
 <script>
-    import priceTag from "./components/priceTag";
+    import priceTag from "../components/priceTag";
     export default {
         components: {priceTag},
         name: "memberManage",
@@ -284,7 +284,6 @@
                 this.changeLevel = '1'
             },
             integerOk(){
-                console.log(this.changeInteger, '积分')
                 if(this.changeInteger === '1'){
                     console.log(this.add, '加分')
                 }else{
@@ -352,5 +351,5 @@
 </script>
 
 <style lang="scss" scoped>
-  @import "~@/style/members/management.scss";
+  @import "~@/style/members/member/management.scss";
 </style>
