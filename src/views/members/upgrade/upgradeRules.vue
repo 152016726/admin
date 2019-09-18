@@ -121,7 +121,14 @@
         },
         computed: {
             isShowTable() {
-                return this.$route.fullPath === '/member/upgradeRules'
+                const flag = this.$route.fullPath === '/member/upgradeRules';
+                // 数据回显
+                if(flag) this.$nextTick(()=>{
+                    this.multipleSelection.forEach(row => {
+                        this.$refs.multipleTable.toggleRowSelection(row, true);
+                    });
+                })
+                return flag
             }
         },
         methods:{

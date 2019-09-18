@@ -102,7 +102,14 @@
         },
         computed: {
             isShowTable() {
-                return this.$route.fullPath === '/member/memberActivity'
+                const flag = this.$route.fullPath === '/member/memberActivity';
+                // 数据回显
+                if(flag) this.$nextTick(()=>{
+                    this.multipleSelection.forEach(row => {
+                        this.$refs.multipleTable.toggleRowSelection(row, true);
+                    });
+                })
+                return flag
             }
         },
         methods:{
@@ -121,9 +128,9 @@
                         type: 'warning'
                     });
                 }else{
-                    // this.$router.push({
-                    //     name: 'upgradeDetail'
-                    // })
+                    this.$router.push({
+                        name: 'activityDetail'
+                    })
                 }
             },
             handleAll(){

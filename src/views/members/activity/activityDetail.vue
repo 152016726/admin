@@ -14,7 +14,7 @@
         <div class="columnContent">
           <div class="details">
             <div class="strip">
-              <el-input v-model="" placeholder="请输入活动名称"></el-input>
+              <el-input v-model="activityName" placeholder="请输入活动名称"></el-input>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
           <div class="details">
             <div class="strip">
               <el-date-picker
-                v-model=""
+                v-model="activityPeriod"
                 type="datetimerange"
                 range-separator="~"
                 start-placeholder="开始日期"
@@ -57,25 +57,33 @@
                   type="selection"
                   width="55">
                 </el-table-column>
-                <el-table-column label="兑换物" width="600">
+                <el-table-column label="兑换物" width="560">
                   <template slot-scope="scope">
                     <div>
-
+                      <span v-for="(item, key) in scope.row.material" :key="key">{{key === 'company' ? item : item+ '/'}}</span>
                     </div>
                   </template>
                 </el-table-column>
-                <el-table-column prop="createTime" label="创建时间" width="160"></el-table-column>
-                <el-table-column label="是否启用">
+                <el-table-column label="数量" width="120">
                   <template slot-scope="scope">
-                    <el-switch
-                      v-model="!scope.row.isOpened"
-                      @change=""
-                      active-color="#13ce66"
-                      inactive-color="#ff4949">
-                    </el-switch>
+                    <el-input-number
+                      :controls="false"
+                      v-model="scope.row.amount"
+                      :disabled="true"
+                    >
+                    </el-input-number>
                   </template>
                 </el-table-column>
-                <el-table-column prop="organization" label="业务机构"></el-table-column>
+                <el-table-column label="兑换积分" width="120">
+                  <template slot-scope="scope">
+                    <el-input-number
+                      :controls="false"
+                      v-model="scope.row.credits"
+                      :disabled="true"
+                    >
+                    </el-input-number>
+                  </template>
+                </el-table-column>
               </el-table>
             </div>
           </div>
@@ -88,19 +96,44 @@
 <script>
     export default {
         name: "activityDetail",
-        data(){
-            return{
+        data() {
+            return {
+                activityPeriod: '',
+                activityName: '',
                 tableData: [
                     {
-                      transfer: {
-
-                      }
+                        material: {
+                            no: '01010204001',
+                            name: '阿司匹林肠溶片',
+                            dosage: '50mg*25片*3（片剂）',
+                            unit: '盒',
+                            company: '大同市利群药业有限责任公司'
+                        },
+                        amount: '1',
+                        credits: '100'
+                    },
+                    {
+                        material: {
+                            no: '01010204001',
+                            name: '阿司匹林肠溶片',
+                            dosage: '50mg*25片*3（片剂）',
+                            unit: '盒',
+                            company: '大同市利群药业有限责任公司'
+                        },
+                        amount: '1',
+                        credits: '100'
                     }
-                ]
+                ],
+                multipleSelection: []
             }
         },
-        methods:{
+        methods: {
+            handleSelectionChange(val){
+                this.multipleSelection = val;
+            },
+            editColumn(){
 
+            }
         }
     }
 </script>

@@ -48,19 +48,19 @@
             登陆系统
           </a>
         </el-form>
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          第三方登录
-        </el-button>
+<!--        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">-->
+<!--          第三方登录-->
+<!--        </el-button>-->
       </div>
     </div>
 
-    <el-dialog title="第三方登录" :visible.sync="showDialog">
-      暂未开放! ! !
-      <br>
-      <br>
-      <br>
-      <social-sign />
-    </el-dialog>
+<!--    <el-dialog title="第三方登录" :visible.sync="showDialog">-->
+<!--      暂未开放! ! !-->
+<!--      <br>-->
+<!--      <br>-->
+<!--      <br>-->
+<!--      <social-sign />-->
+<!--    </el-dialog>-->
   </div>
 </template>
 

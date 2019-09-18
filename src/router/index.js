@@ -34,26 +34,26 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
-  {
-    path: '/baseInfo',
-    name: 'baseInfo',
-    component: Layout,
-    redirect: '/baseInfo/baseList',
-    meta: {title: '基础数据', icon: 'dashboard'},
-    children: [{
-      path: 'baseList',
-      name: 'baseList',
-      component: () => import('@/views/goods/dashboard'),
-      meta: {title: '基础数据', icon: 'dashboard', affix: true},
-      children: [{
-        path: 'goodsDetail',
-        name: 'goodsDetail',
-        component: () => import('@/views/goods/goodsDetail'),
-        meta: {title: '详情'},
-        hidden: true
-      }]
-    }]
-  },
+  // {
+  //   path: '/baseInfo',
+  //   name: 'baseInfo',
+  //   component: Layout,
+  //   redirect: '/baseInfo/baseList',
+  //   meta: {title: '基础数据', icon: 'dashboard'},
+  //   children: [{
+  //     path: 'baseList',
+  //     name: 'baseList',
+  //     component: () => import('@/views/goods/dashboard'),
+  //     meta: {title: '基础数据', icon: 'dashboard', affix: true},
+  //     children: [{
+  //       path: 'goodsDetail',
+  //       name: 'goodsDetail',
+  //       component: () => import('@/views/goods/goodsDetail'),
+  //       meta: {title: '详情'},
+  //       hidden: true
+  //     }]
+  //   }]
+  // },
   {
     path: '/member',
     name: 'member',
@@ -117,37 +117,55 @@ export const asyncRoutes = [
         path: 'memberActivity',
         name: 'memberActivity',
         component: () => import('@/views/members/activity/memberActivity'),
-        meta: {title: '积分活动', icon: 'size'}
+        meta: {title: '积分活动', icon: 'size'},
+        children: [
+          {
+            path: 'activityDetail',
+            name: 'activityDetail',
+            component: () => import('@/views/members/activity/activityDetail'),
+            meta: {title: '详情'},
+            hidden: true
+          }
+        ]
       },
       {
         path: 'memberDay',
         name: 'memberDay',
         component: () => import('@/views/members/day/memberDay'),
-        meta: {title: '会员日活动', icon: 'link'}
+        meta: {title: '会员日活动', icon: 'link'},
+        children: [
+          {
+            path: 'dayDetail',
+            name: 'dayDetail',
+            component: () => import('@/views/members/day/dayDetail'),
+            meta: {title: '详情'},
+            hidden: true
+          }
+        ]
       }
     ]
   },
-  {
-    path: '/useForm',
-    component: Layout,
-    name: 'useForm',
-    meta: {title: '商品列表', icon: 'form', roles: ['editor']},
-    redirect: '/useForm/table',
-    children: [
-      {
-        path: 'table',
-        name: 'table',
-        component: () => import('@/views/table'),
-        meta: {title: '商品类别', icon: 'table', roles: ['editor']}
-      },
-      {
-        path: 'tree',
-        name: 'tree',
-        component: () => import('@/views/table'),
-        meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
-      }
-    ]
-  },
+  // {
+  //   path: '/useForm',
+  //   component: Layout,
+  //   name: 'useForm',
+  //   meta: {title: '商品列表', icon: 'form', roles: ['editor']},
+  //   redirect: '/useForm/table',
+  //   children: [
+  //     {
+  //       path: 'table',
+  //       name: 'table',
+  //       component: () => import('@/views/table'),
+  //       meta: {title: '商品类别', icon: 'table', roles: ['editor']}
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'tree',
+  //       component: () => import('@/views/table'),
+  //       meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
+  //     }
+  //   ]
+  // },
   {
     path: '/404',
     name: '404',
