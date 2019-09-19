@@ -3,7 +3,7 @@
   width: 100%;
   background-color: #ffffff;
   .show-table{
-    height: 100%;
+    height: calc(100vh - 164px);
     .searchTitle {
       display: flex;
       flex-wrap: wrap;

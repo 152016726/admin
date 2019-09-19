@@ -34,26 +34,26 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
-  // {
-  //   path: '/baseInfo',
-  //   name: 'baseInfo',
-  //   component: Layout,
-  //   redirect: '/baseInfo/baseList',
-  //   meta: {title: '基础数据', icon: 'dashboard'},
-  //   children: [{
-  //     path: 'baseList',
-  //     name: 'baseList',
-  //     component: () => import('@/views/goods/dashboard'),
-  //     meta: {title: '基础数据', icon: 'dashboard', affix: true},
-  //     children: [{
-  //       path: 'goodsDetail',
-  //       name: 'goodsDetail',
-  //       component: () => import('@/views/goods/goodsDetail'),
-  //       meta: {title: '详情'},
-  //       hidden: true
-  //     }]
-  //   }]
-  // },
+  {
+    path: '/baseInfo',
+    name: 'baseInfo',
+    component: Layout,
+    redirect: '/baseInfo/baseList',
+    meta: {title: '基础数据', icon: 'dashboard'},
+    children: [{
+      path: 'baseList',
+      name: 'baseList',
+      component: () => import('@/views/goods/dashboard'),
+      meta: {title: '基础数据', icon: 'dashboard', affix: true},
+      children: [{
+        path: 'goodsDetail',
+        name: 'goodsDetail',
+        component: () => import('@/views/goods/goodsDetail'),
+        meta: {title: '详情'},
+        hidden: true
+      }]
+    }]
+  },
   {
     path: '/member',
     name: 'member',
