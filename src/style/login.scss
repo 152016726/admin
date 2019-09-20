@@ -24,26 +24,36 @@ $bg:#2d3a4b;
       }
     }
     .el-form-item__content{
-      display: flex;
       width: 100%;
       height: 32px;
       box-sizing: border-box;
       border: 1px solid #DDDDDD;
       border-radius: 4px;
       position: relative;
+      &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
       /deep/{
         .el-input{
-          display: flex;
+          display: inline-block;
         }
       }
     }
 
     //background: rgba(0, 0, 0, 0.1);
     .svg-container {
-      flex: 1;
+      float: left;
+      width: 9%;
+      display: inline-block;
       padding: 0px 10px;
       height: 100%;
       box-sizing: border-box;
+      vertical-align: middle;
       &.active{
         color: #4486FF;
       }
@@ -56,10 +66,13 @@ $bg:#2d3a4b;
       }
     }
     .el-input {
-      flex: 18;
+      float: left;
+      display: inline-block;
+      width: 89%;
       height: 100%;
       font-size: 16px;
       color: #3F4457;
+      vertical-align: middle;
       input{
         background: transparent;
         border: 0px;
