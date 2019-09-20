@@ -1,70 +1,80 @@
 @import "~@/commonScss/variables.scss";
-.dayDetail{
+
+.dayDetail {
   width: 100%;
-  .handle{
+
+  .handle {
     padding: 10px 10px;
     border-bottom: 1px solid $border;
   }
-  .orgForm{
+
+  .orgForm {
     padding: 20px 20px;
-    .row{
+
+    .row {
       display: flex;
       line-height: 30px;
-      .columnTitle{
+
+      .columnTitle {
         width: 100px;
         text-align: left;
       }
-      .columnContent{
+
+      .columnContent {
         display: flex;
-        .types{
+        width: calc(100% - 100px);
+        max-width: 1000px;
+
+        .activityName{
+          width: 200px;
+        }
+
+        .types {
           width: 100px;
           text-align: left;
         }
-        .details{
-          .strip{
+        /deep/ {
+          .el-input {
+            border: 1px solid $border;
+          }
+
+          .el-input-number {
+            width: 60px;
+            margin: 0 10px;
+            border: 1px solid $border;
+            .el-input {
+              border: none;
+            }
+          }
+          .el-checkbox{
+            display: block;
+          }
+        }
+
+        .details {
+          width: 100%;
+          .strip {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
-            &.direction{
+
+            &.direction {
               flex-direction: column;
-              align-items: flex-start;
-              text-align: center;
             }
-            .description{
+
+            .cardType{
+              margin-bottom: 10px;
+            }
+
+            .description {
               width: 120px;
-            }
-            .rules-handle {
-              margin-bottom: 20px;
-
-              /deep/ {
-                .el-button {
-                  min-width: 92px;
-                  background-color: transparent;
-                  border-radius: 2px;
-                  border: 1px solid $border;
-                  color: $menuActiveText;
-                  box-sizing: border-box;
-
-                  &:hover {
-                    border-color: $menuActiveText;
-                    background-color: $menuActiveText;
-                    color: #ffffff;
-                  }
-                }
-              }
-            }
-            /deep/{
-              .el-input-number{
-                width: 60px;
-                margin: 0 10px;
-                border: 1px solid $border;
-              }
             }
           }
         }
       }
     }
-    .org{
+
+    .org {
       margin-bottom: 20px;
     }
   }

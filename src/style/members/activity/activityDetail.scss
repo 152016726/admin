@@ -16,6 +16,7 @@
       }
       .columnContent{
         display: flex;
+        width: calc(100% - 100px);
         .types{
           width: 100px;
           text-align: left;
@@ -24,11 +25,12 @@
           .strip{
             margin-bottom: 10px;
             display: flex;
-            align-items: center;
+            //align-items: center;
             &.direction{
-              flex-direction: column;
-              align-items: flex-start;
-              text-align: center;
+              display: block;
+            }
+            .activityName{
+              border: 1px solid $border;
             }
             .description{
               width: 120px;

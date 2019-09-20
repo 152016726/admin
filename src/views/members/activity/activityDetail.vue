@@ -14,7 +14,7 @@
         <div class="columnContent">
           <div class="details">
             <div class="strip">
-              <el-input v-model="activityName" placeholder="请输入活动名称"></el-input>
+              <el-input v-model="activityName" placeholder="请输入活动名称" class="activityName"></el-input>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
                     <el-input-number
                       :controls="false"
                       v-model="scope.row.amount"
-                      :disabled="true"
+                      @change="getAmountsChange(scope.row, scope.$index)"
                     >
                     </el-input-number>
                   </template>
@@ -79,7 +79,7 @@
                     <el-input-number
                       :controls="false"
                       v-model="scope.row.credits"
-                      :disabled="true"
+                      @change="getIntegralChange(scope.row, scope.$index)"
                     >
                     </el-input-number>
                   </template>
@@ -128,10 +128,16 @@
             }
         },
         methods: {
-            handleSelectionChange(val){
-                this.multipleSelection = val;
+            handleSelectionChange(val) {
+                this.multipleSelection = val
             },
-            editColumn(){
+            getAmountsChange(val, index) {
+                this.tableData[index] = val
+            },
+            getIntegralChange(val, index) {
+                this.tableData[index] = val
+            },
+            editColumn() {
 
             }
         }
