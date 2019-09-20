@@ -45,7 +45,7 @@
 
           <a href="#" class="loginBtn" :class="{active: loginForm.account && loginForm.password}"
              @click.prevent.stop="submitData">
-            登陆系统
+            登录系统
           </a>
         </el-form>
 <!--        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">-->
