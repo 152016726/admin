@@ -25,7 +25,7 @@ $bg:#2d3a4b;
     }
     .el-form-item__content{
       width: 100%;
-      height: 32px;
+      height: 40px;
       box-sizing: border-box;
       border: 1px solid #DDDDDD;
       border-radius: 4px;
@@ -68,7 +68,7 @@ $bg:#2d3a4b;
     .el-input {
       float: left;
       display: inline-block;
-      width: 89%;
+      width: 91%;
       height: 100%;
       font-size: 16px;
       color: #3F4457;
@@ -219,6 +219,12 @@ $bg:#2d3a4b;
   @media only screen and (max-width: 470px) {
     .thirdparty-button {
       display: none;
+    }
+  }
+  // 兼容小屏幕
+  @media only screen and (max-width: 1330px){
+    .el-form-item .el-form-item__content{
+      height: 32px;
     }
   }
 }

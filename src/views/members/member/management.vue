@@ -58,7 +58,7 @@
         <el-button type="primary" class="search-btn">搜索</el-button>
       </div>
       <div class="line"></div>
-      <div class="goods-form">
+      <div class="goods-form" :class="{'isMultiScreen': isMultiScreen}">
         <div class="goods-handle clearfix">
           <el-button type="primary" class="fl" @click="isChangeLevel = true">级别变更</el-button>
           <el-button type="primary" class="fl" @click="isIntegerCount = true">积分加减</el-button>
@@ -175,6 +175,7 @@
 
 <script>
     import priceTag from "../components/priceTag";
+
     export default {
         components: {priceTag},
         name: "memberManage",
@@ -269,11 +270,14 @@
                 reason: ''
             }
         },
-          computed: {
-              isShowTable() {
-                  return this.$route.fullPath === '/member/memberManagement'
-              }
-          },
+        computed: {
+            isShowTable() {
+                return this.$route.fullPath === '/member/memberManagement'
+            },
+            isMultiScreen() {
+                return this.$store.state.resize.multiScreen
+            }
+        },
         methods: {
             levelOk() {
                 console.log(this.changeLevel, '会员等级')
@@ -283,22 +287,22 @@
                 // 重置
                 this.changeLevel = '1'
             },
-            integerOk(){
-                if(this.changeInteger === '1'){
+            integerOk() {
+                if (this.changeInteger === '1') {
                     console.log(this.add, '加分')
-                }else{
+                } else {
                     console.log(this.subtract, '减分')
                 }
                 this.integerCancel()
             },
-            integerCancel(){
+            integerCancel() {
                 this.changeInteger = '1'
                 this.reason = ''
             },
-            gotoRegister(){
-              this.$router.push({
-                  name: 'registerCard'
-              })
+            gotoRegister() {
+                this.$router.push({
+                    name: 'registerCard'
+                })
             },
             /**
              * 选中项

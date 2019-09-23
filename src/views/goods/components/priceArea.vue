@@ -66,13 +66,18 @@
     }
 
     .number-input {
-      height: 30px;
       width: 80px;
       border: 1px solid $border;
       box-sizing: border-box;
     }
     .split{
       margin: 0 5px;
+    }
+  }
+
+  @media only screen and (max-width: 1410px){
+    .priceArea .number-input{
+      height: 30px;
     }
   }
 

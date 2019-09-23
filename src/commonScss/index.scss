@@ -88,9 +88,6 @@ $bg:#283443;
     }
   }
 }
-.el-select{
-  border:1px solid $border;
-}
 
 .line {
   height: 10px;
@@ -100,6 +97,14 @@ $bg:#283443;
 input::-ms-clear{display: none;}
 input::-ms-reveal{display: none;}
 
+input {
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
 i,span,em{
   font-style: normal;
+}
+div{
+  box-sizing: border-box;
 }

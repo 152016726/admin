@@ -6,9 +6,9 @@
     border-bottom: 1px solid $border;
   }
   .cardInfo{
+    padding: 10px 10px;
     .el-input{
       width: 300px;
-      border:1px solid $border;
       &.noneBorder{
         border: none;
       }

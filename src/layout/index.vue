@@ -29,6 +29,7 @@
     import {Sidebar, AppMain, Navbar, TagsView} from './components'
     import BackToTop from '@/components/BackToTop'
     import Breadcrumb from "@/components/Breadcrumb";
+    import { mapState } from 'vuex'
 
     export default {
         name: "Layout",
@@ -50,17 +51,14 @@
           }
         },
         computed: {
-            sidebar() {
+            ...mapState({
+                device: state => state.app.device,
+                fixedHeader: state => state.settings.fixedHeader,
+                tagsView: state => state.settings.tagsView
+            }),
+            sidebar(){
+                this.$_isMultiScreen()
                 return this.$store.state.app.sidebar
-            },
-            device() {
-                return this.$store.state.app.device
-            },
-            fixedHeader() {
-                return this.$store.state.settings.fixedHeader
-            },
-            tagsView(){
-                return this.$store.state.settings.tagsView
             },
             classObj() {
                 return {

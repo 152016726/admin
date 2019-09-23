@@ -93,6 +93,7 @@
         .el-dropdown {
           /deep/ {
             .el-button {
+              height: 100%;
               border-radius: 0;
               background: transparent;
               border: 1px solid $border;
@@ -240,4 +241,10 @@
 
   }
 
+}
+
+@media only screen and (max-width: 1330px){
+  .goods-list .goods-filter-column{
+    height: 30px;
+  }
 }

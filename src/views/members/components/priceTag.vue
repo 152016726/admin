@@ -36,10 +36,9 @@
                 this.val = item;
             }
         },
-        computed:{
-            diyStyle(){
+        computed: {
+            diyStyle() {
                 return Object.assign({
-                    height: '30px',
                     width: '80px',
                     'box-sizing': 'border-box'
                 }, this.customStyle)
@@ -53,13 +52,18 @@
 
   .priceTag {
     position: relative;
-    /deep/{
-      .el-input.is-disabled .el-input__inner{
+
+    /deep/ {
+      .el-input.is-disabled .el-input__inner {
         color: #606266;
         cursor: default;
         text-align: left;
       }
+      .el-input-number .el-input {
+        display: flex;
+      }
     }
+
     .unit {
       position: absolute;
       top: 50%;
@@ -67,6 +71,12 @@
       font-size: 12px;
       font-style: normal;
       transform: translateY(-50%);
+    }
+  }
+
+  @media only screen and (max-width: 1410px) {
+    .priceTag .el-input-number {
+      height: 30px;
     }
   }
 

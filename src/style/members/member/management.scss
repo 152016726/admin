@@ -1,5 +1,6 @@
 @import "~@/commonScss/variables.scss";
 
+
 .memberManage {
   &-container {
     width: 100%;
@@ -18,13 +19,11 @@
         .el-input, .el-select, .el-date-editor {
           margin-top: 10px;
           margin-left: 10px;
-          border: 1px solid #DDDDDD;
         }
 
         .search-btn {
           margin-top: 10px;
           margin-left: 10px;
-          height: 30px;
           padding: 0 50px;
         }
       }
@@ -35,9 +34,12 @@
       .goods-form {
         display: flex;
         flex-direction: column;
-        height: calc(100% - 100px);
+        height: calc(100% - 120px);
         padding: 10px 10px;
         box-sizing: border-box;
+        &.isMultiScreen{
+          height: calc(100% - 140px);
+        }
 
         .goods-handle {
           margin-bottom: 20px;
@@ -100,11 +102,27 @@
   /deep/ {
     .el-input-number {
       width: 100px;
-      border: 1px solid $border;
     }
 
     .el-radio__label{
       padding-left: 10px;
+    }
+  }
+}
+
+// 兼容小屏幕
+@media only screen and (max-width: 1410px){
+  .memberManage{
+    &-container{
+      .search-btn{
+        height: 30px;
+      }
+      .show-table{
+        .goods-form{
+          height: calc(100% - 100px);
+        }
+      }
+
     }
   }
 }
