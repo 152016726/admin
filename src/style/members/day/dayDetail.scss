@@ -13,7 +13,7 @@
 
     .row {
       display: flex;
-      line-height: 30px;
+      line-height: 40px;
 
       .columnTitle {
         width: 100px;
@@ -34,14 +34,10 @@
           text-align: left;
         }
         /deep/ {
-          .el-input {
-            border: 1px solid $border;
-          }
 
           .el-input-number {
             width: 60px;
             margin: 0 10px;
-            border: 1px solid $border;
             .el-input {
               border: none;
             }
@@ -77,5 +73,11 @@
     .org {
       margin-bottom: 20px;
     }
+  }
+}
+
+@media only screen and (max-width: 1410px){
+  .dayDetail .orgForm .row{
+    line-height: 30px;
   }
 }

@@ -79,9 +79,9 @@
     }
     .datePrint {
       margin-left: 10px;
-      height: 30px;
-      line-height: 30px;
       text-indent: 5px;
+      height: 40px;
+      line-height: 40px;
       width: 300px;
       overflow: hidden;
       text-overflow:ellipsis;
@@ -91,6 +91,12 @@
     }
     .dateList{
       width: 100%;
+    }
+  }
+  @media only screen and (max-width: 1410px){
+    .chooseDateType .datePrint{
+      height: 30px;
+      line-height: 30px;
     }
   }
 </style>

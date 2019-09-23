@@ -29,9 +29,6 @@
             &.direction{
               display: block;
             }
-            .activityName{
-              border: 1px solid $border;
-            }
             .description{
               width: 120px;
             }
@@ -59,7 +56,6 @@
               .el-input-number{
                 width: 60px;
                 margin: 0 10px;
-                border: 1px solid $border;
               }
             }
           }

@@ -16,7 +16,6 @@
       .el-input, .el-select, .el-date-editor {
         margin-top: 10px;
         margin-left: 10px;
-        border: 1px solid #DDDDDD;
       }
 
       .search-btn {
@@ -84,4 +83,10 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 1410px){
+  .memberDay .search-btn{
+    height: 30px;
+  }
 }

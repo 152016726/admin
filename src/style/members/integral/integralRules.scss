@@ -16,13 +16,11 @@
       .el-input, .el-select, .el-date-editor {
         margin-top: 10px;
         margin-left: 10px;
-        border: 1px solid #DDDDDD;
       }
 
       .search-btn {
         margin-top: 10px;
         margin-left: 10px;
-        height: 30px;
         padding: 0 50px;
       }
     }
@@ -84,6 +82,12 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 1410px){
+  .integralRules .search-btn{
+    height: 30px;
+  }
 }
 
 
