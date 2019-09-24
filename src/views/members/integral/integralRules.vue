@@ -154,9 +154,6 @@
                 return flag
             }
         },
-        mounted(){
-          console.log('哈哈哈哈')
-        },
         methods:{
             handleSelectionChange(val) {
                 this.multipleSelection = val;

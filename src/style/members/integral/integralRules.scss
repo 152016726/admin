@@ -28,7 +28,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: calc(100% - 60px);
+      height: calc(100% - 70px);
       padding: 10px 10px;
       box-sizing: border-box;
       .rules-handle {
@@ -87,6 +87,9 @@
 @media only screen and (max-width: 1410px){
   .integralRules .search-btn{
     height: 30px;
+  }
+  .upgradeRules .show-table .rulesForm{
+    height: calc(100% - 60px);
   }
 }
 

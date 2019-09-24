@@ -76,6 +76,10 @@
       .el-input{
         display: flex;
       }
+      .el-checkbox-group{
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     .datePrint {
       margin-left: 10px;

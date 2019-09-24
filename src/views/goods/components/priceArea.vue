@@ -67,7 +67,6 @@
 
     .number-input {
       width: 80px;
-      border: 1px solid $border;
       box-sizing: border-box;
     }
     .split{

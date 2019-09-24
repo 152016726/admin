@@ -34,38 +34,38 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
-  {
-    path: '/baseInfo',
-    name: 'baseInfo',
-    component: Layout,
-    redirect: '/baseInfo/baseList',
-    meta: {title: '基础数据', icon: 'dashboard'},
-    children: [{
-      path: 'baseList',
-      name: 'baseList',
-      component: () => import('@/views/goods/dashboard'),
-      meta: {title: '基础数据', icon: 'dashboard', affix: true},
-      children: [{
-        path: 'goodsDetail',
-        name: 'goodsDetail',
-        component: () => import('@/views/goods/goodsDetail'),
-        meta: {title: '详情'},
-        hidden: true
-      }]
-    }]
-  },
+  // {
+  //   path: '/baseInfo',
+  //   name: 'baseInfo',
+  //   component: Layout,
+  //   redirect: '/baseInfo/baseList',
+  //   meta: {title: '基础数据', icon: 'dashboard'},
+  //   children: [{
+  //     path: 'baseList',
+  //     name: 'baseList',
+  //     component: () => import('@/views/goods/dashboard'),
+  //     meta: {title: '基础数据', icon: 'dashboard', affix: true},
+  //     children: [{
+  //       path: 'goodsDetail',
+  //       name: 'goodsDetail',
+  //       component: () => import('@/views/goods/goodsDetail'),
+  //       meta: {title: '详情'},
+  //       hidden: true
+  //     }]
+  //   }]
+  // },
   {
     path: '/member',
     name: 'member',
     component: Layout,
     redirect: '/member/memberManagement',
-    meta: {title: '会员管理', icon: 'documentation'},
+    meta: {title: '会员管理', icon: 'dashboard'},
     children: [
       {
         path: 'memberManagement',
         name: 'memberManagement',
         component: () => import('@/views/members/member/management'),
-        meta: {title: '会员卡管理', icon: 'clipboard'},
+        meta: {title: '会员卡管理', icon: 'clipboard', affix: true},
         children: [
           {
             path: 'memberDetail',

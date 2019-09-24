@@ -195,6 +195,7 @@
       }
 
       .cardTypeContent {
+        width: calc(100% - 80px);
         .title {
           line-height: 30px;
         }
