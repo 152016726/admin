@@ -1,5 +1,55 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+const login = r =>
+  require.ensure([], () => r(require('@/views/login/index')), 'login')
+
+const redirect = r =>
+  require.ensure([], () => r(require('@/views/login/auth-redirect')), 'redirect')
+
+const dashboard = r =>
+  require.ensure([], () => r(require('@/views/goods/goodsList')), 'dashboard')
+
+const memberManagement = r =>
+  require.ensure([], () => r(require('@/views/members/member/management')), 'memberManagement')
+
+const memberDetail = r =>
+  require.ensure([], () => r(require('@/views/members/member/memberDetail')), 'memberDetail')
+
+const registerCard = r =>
+  require.ensure([], () => r(require('@/views/members/member/registerCard')), 'registerCard')
+
+const upgradeRules = r =>
+  require.ensure([], () => r(require('@/views/members/upgrade/upgradeRules')), 'upgradeRules')
+
+const upgradeDetail = r =>
+  require.ensure([], () => r(require('@/views/members/upgrade/upgradeDetail')), 'upgradeDetail')
+
+const integralRules = r =>
+  require.ensure([], () => r(require('@/views/members/integral/integralRules')), 'integralRules')
+
+const integralDetail = r =>
+  require.ensure([], () => r(require('@/views/members/integral/integralDetail')), 'integralDetail')
+
+const memberActivity = r =>
+  require.ensure([], () => r(require('@/views/members/activity/memberActivity')), 'memberActivity')
+
+const activityDetail = r =>
+  require.ensure([], () => r(require('@/views/members/activity/activityDetail')), 'activityDetail')
+
+const memberDay = r =>
+  require.ensure([], () => r(require('@/views/members/day/memberDay')), 'memberDay')
+
+const dayDetail = r =>
+  require.ensure([], () => r(require('@/views/members/day/dayDetail')), 'dayDetail')
+
+const notFound = r =>
+  require.ensure([], () => r(require('@/views/404')), 'notFound')
+
+const baseList = r =>
+  require.ensure([], () => r(require('@/views/goods/dashboard')), 'baseList')
+
+const goodsDetail = r =>
+  require.ensure([], () => r(require('@/views/goods/goodsDetail')), 'goodsDetail')
 
 Vue.use(Router)
 
@@ -9,13 +59,13 @@ export const constantRoutes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/login/index'),
+    component: login,
     hidden: true
   },
   {
     path: '/auth-redirect',
     name: 'auth-redirect',
-    component: () => import('@/views/login/auth-redirect'),
+    component: redirect,
     hidden: true
   },
   {
@@ -27,7 +77,7 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/goods/goodsList'),
+      component: dashboard,
       meta: {title: '商品清单', icon: 'dashboard', affix: true},
     }]
   }
@@ -43,12 +93,12 @@ export const asyncRoutes = [
   //   children: [{
   //     path: 'baseList',
   //     name: 'baseList',
-  //     component: () => import('@/views/goods/dashboard'),
+  //     component: baseList,
   //     meta: {title: '基础数据', icon: 'dashboard', affix: true},
   //     children: [{
   //       path: 'goodsDetail',
   //       name: 'goodsDetail',
-  //       component: () => import('@/views/goods/goodsDetail'),
+  //       component: goodsDetail,
   //       meta: {title: '详情'},
   //       hidden: true
   //     }]
@@ -64,13 +114,13 @@ export const asyncRoutes = [
       {
         path: 'memberManagement',
         name: 'memberManagement',
-        component: () => import('@/views/members/member/management'),
+        component: memberManagement,
         meta: {title: '会员卡管理', icon: 'clipboard', affix: true},
         children: [
           {
             path: 'memberDetail',
             name: 'memberDetail',
-            component: () => import('@/views/members/member/memberDetail'),
+            component: memberDetail,
             meta: {title: '详情'},
             hidden: true
           }
@@ -79,20 +129,20 @@ export const asyncRoutes = [
       {
         path: 'registerCard',
         name: 'registerCard',
-        component: () => import('@/views/members/member/registerCard'),
+        component: registerCard,
         meta: {title: '会员卡办理', icon: 'star'},
         hidden: true
       },
       {
         path: 'upgradeRules',
         name: 'upgradeRules',
-        component: () => import('@/views/members/upgrade/upgradeRules'),
+        component: upgradeRules,
         meta: {title: '升级规则', icon: 'chart'},
         children: [
           {
             path: 'upgradeDetail',
             name: 'upgradeDetail',
-            component: () => import('@/views/members/upgrade/upgradeDetail'),
+            component: upgradeDetail,
             meta: {title: '详情'},
             hidden: true
           }
@@ -101,13 +151,13 @@ export const asyncRoutes = [
       {
         path: 'integralRules',
         name: 'integralRules',
-        component: () => import('@/views/members/integral/integralRules'),
+        component: integralRules,
         meta: {title: '积分规则', icon: 'language'},
         children: [
           {
             path: 'integralDetail',
             name: 'integralDetail',
-            component: () => import('@/views/members/integral/integralDetail'),
+            component: integralDetail,
             meta: {title: '详情'},
             hidden: true
           }
@@ -116,13 +166,13 @@ export const asyncRoutes = [
       {
         path: 'memberActivity',
         name: 'memberActivity',
-        component: () => import('@/views/members/activity/memberActivity'),
+        component: memberActivity,
         meta: {title: '积分活动', icon: 'size'},
         children: [
           {
             path: 'activityDetail',
             name: 'activityDetail',
-            component: () => import('@/views/members/activity/activityDetail'),
+            component: activityDetail,
             meta: {title: '详情'},
             hidden: true
           }
@@ -131,13 +181,13 @@ export const asyncRoutes = [
       {
         path: 'memberDay',
         name: 'memberDay',
-        component: () => import('@/views/members/day/memberDay'),
+        component: memberDay,
         meta: {title: '会员日活动', icon: 'link'},
         children: [
           {
             path: 'dayDetail',
             name: 'dayDetail',
-            component: () => import('@/views/members/day/dayDetail'),
+            component: dayDetail,
             meta: {title: '详情'},
             hidden: true
           }
@@ -145,31 +195,10 @@ export const asyncRoutes = [
       }
     ]
   },
-  // {
-  //   path: '/useForm',
-  //   component: Layout,
-  //   name: 'useForm',
-  //   meta: {title: '商品列表', icon: 'form', roles: ['editor']},
-  //   redirect: '/useForm/table',
-  //   children: [
-  //     {
-  //       path: 'table',
-  //       name: 'table',
-  //       component: () => import('@/views/table'),
-  //       meta: {title: '商品类别', icon: 'table', roles: ['editor']}
-  //     },
-  //     {
-  //       path: 'tree',
-  //       name: 'tree',
-  //       component: () => import('@/views/table'),
-  //       meta: {title: '商品展示', icon: 'tree', roles: ['editor']}
-  //     }
-  //   ]
-  // },
   {
     path: '/404',
     name: '404',
-    component: () => import('@/views/404'),
+    component: notFound,
     hidden: true
   },
   // 404 page must be placed at the end !!!
