@@ -51,6 +51,12 @@ const baseList = r =>
 const goodsDetail = r =>
   require.ensure([], () => r(require('@/views/goods/goodsDetail')), 'goodsDetail')
 
+// 解决Uncaught (in promise) NavigationDuplicated
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 Vue.use(Router)
 
 import Layout from '@/layout'

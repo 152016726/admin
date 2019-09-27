@@ -3,7 +3,10 @@
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar"/>
     <NavMenu class="navMenu-container"/>
     <div class="right-menu">
-      <el-dropdown class="avatar-container" trigger="click">
+      <template v-if="device!=='mobile'">
+        <search-route id="header-search" class="right-menu-item"/>
+      </template>
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" class="user-avatar">
           <i class="el-icon-caret-bottom"/>
@@ -11,17 +14,17 @@
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
             <router-link to="/">
               <el-dropdown-item>
-                    Home
+                    首页
               </el-dropdown-item>
             </router-link>
           <a target="_blank" href="https://github.com/PanJiaChen/vue-admin-template/">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
           <a target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/#/">
-            <el-dropdown-item>Docs</el-dropdown-item>
+            <el-dropdown-item>文档</el-dropdown-item>
           </a>
           <el-dropdown-item divided>
-            <span style="display:block;" @click="logout">Log Out</span>
+            <span style="display:block;" @click="logout">登出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -31,19 +34,22 @@
 
 <script>
     import {mapGetters} from 'vuex'
-    import Hamburger from "@/components/Hamburger";
-    import NavMenu from "@/components/NavMenu";
+    import Hamburger from "@/components/Hamburger"
+    import NavMenu from "@/components/NavMenu"
+    import searchRoute from "@/components/searchRoute";
 
     export default {
         name: "Navbar",
         computed: {
             ...mapGetters([
-                'sidebar'
+                'sidebar',
+                'device'
             ])
         },
         components: {
             Hamburger,
-            NavMenu
+            NavMenu,
+            searchRoute
         },
         methods: {
             toggleSideBar() {
